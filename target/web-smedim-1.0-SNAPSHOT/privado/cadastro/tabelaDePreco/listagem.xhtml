@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/modelo/templateComMenu.xhtml">
+        <ui:define name="conteudo">
+            <p:panel id="panel"
+                     header="Tabela de Preço">
+                <h:form id="formServicoConvenio">
+                    <p:growl id="mensagem"/>
+
+                    <p>
+                        <p:commandButton id="cbInserir"
+                                         value="Inserir"
+                                         update=":formDialog"
+                                         oncomplete="PF('dlg').show()"
+                                         action="#{servicoConvenioBean.incluir()}"/>
+
+                        <br/>
+
+                        <p:selectOneMenu id="slOMenuConvenio"
+                                         value="#{servicoConvenioBean.convenio}"
+                                         converter="#{convenioConversor}"
+                                         label="Convenio">
+                            <f:selectItem itemLabel="--Convenio--"
+                                          noSelectionOption="true"/>
+                            <f:selectItems value="#{convenioBean.convenios}"
+                                           var="convenio"
+                                           itemLabel="#{convenio.nome}"
+                                           itemValue="#{convenio}"/>
+                            <f:ajax event="valueChange"
+                                    render="@form"/>
+                        </p:selectOneMenu>
+                    </p>
+
+                    <p:dataTable id="tabelaServicoPreco"
+                                 value="#{servicoConvenioBean.servicoConvenios}"
+                                 var="servicoConvenio"
+                                 style="width: 50%"
+                                 emptyMessage="sem registros">
+                        <p:column headerText="Serviço">
+                            <h:outputText id="outServico"
+                                          value="#{servicoConvenio.servico.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Preço" style="width: 25%">
+                            <h:outputText id="outPreco"
+                                          value="#{servicoConvenio.preco}">
+                                <f:convertNumber type="currency"
+                                                 currencySymbol="R$"
+                                                 minFractionDigits="2"
+                                                 maxFractionDigits="2"/>
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Excluir" style="width: 12%">
+                            <div align="center">
+                                <p:commandButton id="cbExcluir"
+                                                 icon="ui-icon-trash"
+                                                 update="@form"
+                                                 title="excluir um servico"
+                                                 action="#{servicoConvenioBean.deletar()}">
+                                    <f:setPropertyActionListener
+                                        value="#{servicoConvenio}"
+                                        target="#{servicoConvenioBean.servicoConvenio}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+
+                <ui:include src="/privado/cadastro/tabelaDePreco/formulario.xhtml"/>
+
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>
+

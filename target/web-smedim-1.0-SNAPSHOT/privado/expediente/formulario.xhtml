@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:dialog id="dlg"
+              widgetVar="dlg"
+              modal="true">
+        <h:form id="formDialog">
+            <p:panelGrid columns="2">
+                <h:outputText value="Médico: "/>
+                <p:selectOneMenu id="slOMenuMedico"
+                                 value="#{expedienteBean.faturamento.medico}"
+                                 converter="#{medicoConversor}"
+                                 label="Médico"
+                                 required="true"
+                                 filter="true">
+                    <f:selectItem itemLabel="--Médico--"
+                                  noSelectionOption="true"/>
+                    <f:selectItems value="#{expedienteBean.medicos}"
+                                   var="medico"
+                                   itemLabel="#{medico.nome}"
+                                   itemValue="#{medico}"/>
+                </p:selectOneMenu>
+
+                <h:outputText id="outAtendimento" value="Atendimento: "/>
+                <p:selectOneMenu id="slOMenuServico"
+                                 value="#{expedienteBean.faturamento.servicoConvenio}"
+                                 var="sc"
+                                 converter="#{servicoConvenioConversor}"
+                                 label="Serviço"
+                                 required="true"
+                                 filter="true">
+                    <f:selectItem itemLabel="--Atendimento--"
+                                  noSelectionOption="true"/>
+                    <f:selectItems value="#{expedienteBean.servicoConvenioNaoSelecionado}"
+                                   var="servicoConvenio"
+                                   itemLabel="#{servicoConvenio.convenio.nome}"
+                                   itemValue="#{servicoConvenio}"/>
+                    <p:column>
+                        <h:outputText id="outConvenio" value="#{sc.convenio.nome}"/>
+                    </p:column>
+
+                    <p:column>
+                        <h:outputText id="outServico" value="#{sc.servico.nome}"/>
+                    </p:column>
+
+                    <f:ajax event="valueChange" render="outMostraServico"/>
+                </p:selectOneMenu>
+
+                <span>Serviço: </span>
+                <h:outputText id="outMostraServico"
+                              value="#{expedienteBean.faturamento.servicoConvenio.servico.nome}"/>
+
+                <span>Referente: </span>
+                <p:calendar id="calendario"
+                            value="#{expedienteBean.faturamento.dataDoFaturamento}"
+                            pattern="dd/MM/yyyy">
+                    <p:ajax event="dateSelect"
+                            process="calendario"
+                            update="slOMenuServico"/>
+                </p:calendar>
+
+            </p:panelGrid>
+
+            <p>
+                <p:commandButton id="cbSalvar"
+                                 value="Salvar"
+                                 update=":formExpediente"
+                                 action="#{expedienteBean.salvar()}"
+                                 oncomplete="PF('dlg').hide()"/>
+            </p>
+        </h:form>
+    </p:dialog>
+</html>
+

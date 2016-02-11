@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/modelo/templateComMenu.xhtml">
+        <ui:define name="conteudo">
+            <h:form id="formExpediente">
+                <p:growl id="mensagem"/>
+
+                <p:panel id="panel"
+                         header="Expediente">
+                    <p>
+                        <p:calendar id="calendario"
+                                    locale="pt_BR"
+                                    value="#{expedienteBean.faturamento.dataDoFaturamento}"
+                                    mode="inline">
+                            <p:ajax event="dateSelect"
+                                    process="calendario"
+                                    update="tabelaExpediente"/>
+                        </p:calendar>
+
+                        <br/>
+
+                        <h:panelGrid columns="2">
+                            <p:commandButton id="cbInserir"
+                                             value="Inserir"
+                                             update=":formDialog"
+                                             onclick="PF('dlg').show()"
+                                             action="#{expedienteBean.inserir()}"/>
+                        </h:panelGrid>
+                    </p>
+
+                    <p:dataTable id="tabelaExpediente"
+                                 value="#{expedienteBean.faturamentos}"
+                                 var="faturamento"
+                                 emptyMessage="sem registros">
+                        <p:column headerText="Médico">
+                            <h:outputText value="#{faturamento.medico.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Convênio">
+                            <h:outputText id="outConvenio" value="#{faturamento.servicoConvenio.convenio.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Serviço">
+                            <h:outputText id="outServico" value="#{faturamento.servicoConvenio.servico.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Preço" style="width: 10%">
+                            <div align="center">
+                                <h:outputText id="outPreco" value="#{faturamento.servicoConvenio.preco}">
+                                    <f:convertNumber type="currency"
+                                                     currencySymbol="R$"
+                                                     minFractionDigits="2"
+                                                     maxFractionDigits="2"/>
+                                </h:outputText>
+                            </div>
+                        </p:column>
+
+                        <p:column headerText="Nº de Atendimento" style="width: 10%">
+                            <div align="center">
+                                <h:outputText id="outNumAtendimento"
+                                              value="#{faturamento.numDeAtendimento}"/>
+                            </div>
+
+                            <f:facet name="footer">
+                                <span>Total: </span>
+                                <h:outputText id="outTotalAtendimento"
+                                              value="#{expedienteBean.totalAtendimento}"/>
+                            </f:facet>
+                        </p:column>
+
+                        <p:column headerText="Sub-Total" style="width: 12%">
+                            <div align="center">
+                                <h:outputText id="outSubTotal"
+                                              value="#{faturamento.numDeAtendimento
+                                                       * faturamento.servicoConvenio.preco}">
+                                    <f:convertNumber type="currency"
+                                                     currencySymbol="R$"
+                                                     minFractionDigits="2"
+                                                     maxFractionDigits="2"/>
+                                </h:outputText>
+                            </div>
+
+                            <f:facet name="footer">
+                                <span>Total: </span>
+                                <h:outputText id="outTotal"
+                                              value="#{expedienteBean.total}">
+                                    <f:convertNumber type="currency"
+                                                     currencySymbol="R$"
+                                                     minFractionDigits="2"
+                                                     maxFractionDigits="2"/>
+                                </h:outputText>
+                            </f:facet>
+                        </p:column>
+
+                        <p:column headerText="+" style="width: 5%">
+                            <div align="center">
+                                <p:commandButton id="cbAdd"
+                                                 value="+"
+                                                 update="tabelaExpediente"
+                                                 action="#{expedienteBean.addNumAtendimento()}">
+                                    <f:setPropertyActionListener
+                                        value="#{faturamento}"
+                                        target="#{expedienteBean.faturamento}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+
+                        <p:column headerText="-" style="width: 5%">
+                            <div align="center">
+                                <p:commandButton id="cbSub"
+                                                 value="-"
+                                                 update="tabelaExpediente"
+                                                 action="#{expedienteBean.subNumAtendimento()}">
+                                    <f:setPropertyActionListener
+                                        value="#{faturamento}"
+                                        target="#{expedienteBean.faturamento}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+
+                        <p:column headerText="Excluir" style="width: 7%">
+                            <div align="center">
+                                <p:commandButton id="cbExcluir"
+                                                 icon="ui-icon-trash"
+                                                 update="@form"
+                                                 action="#{expedienteBean.deletar()}">
+                                    <f:setPropertyActionListener
+                                        value="#{faturamento}"
+                                        target="#{expedienteBean.faturamento}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="/privado/expediente/formulario.xhtml"/>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

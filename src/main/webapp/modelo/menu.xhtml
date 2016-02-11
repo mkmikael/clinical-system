@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="formMenu">
+        <p:menubar id="menuBar">
+            <p:menuitem id="Inicio"
+                        icon="ui-icon-home"
+                        value="Início"
+                        outcome="index"/>
+
+            <p:menuitem id="miCliente"
+                        value="Cliente"
+                        icon="ui-icon-person"
+                        outcome="cliente"/>
+
+            <p:menuitem id="miAgenda"
+                        icon="ui-icon-note"
+                        value="Agenda"
+                        outcome="agenda"/>
+
+            <p:menuitem id="miExpediente"
+                        icon="ui-icon-bookmark"
+                        value="Expediente"
+                        rendered="#{usuarioBean.recepecao || usuarioBean.adm}"
+                        outcome="expediente"/>
+
+            <p:menuitem id="miProntuario"
+                        icon="ui-icon-contact"
+                        value="Prontuário"
+                        rendered="#{usuarioBean.medico || usuarioBean.adm}"
+                        outcome="prontuario"/>
+
+            <p:submenu id="sbCadastrar" 
+                       label="Cadastrar" 
+                       icon="ui-icon-gear"
+                       rendered="#{usuarioBean.adm}">
+                <p:menuitem id="miTabelaDePreco"
+                            value="Tabela de Preço"
+                            outcome="tabelaDePreco"/>
+                <p:menuitem id="miMedico"
+                            value="Médico"
+                            outcome="medico"/>
+                <p:menuitem id="miConvenio"
+                            value="Convênio"
+                            outcome="convenio"/>
+                <p:menuitem id="miServiço"
+                            value="Serviço"
+                            outcome="servico"/>
+                <p:menuitem id="miUsuario"
+                            value="Usuário"
+                            outcome="usuario"/>
+            </p:submenu>
+
+            <p:submenu id="subMenuFinancas"
+                       icon="ui-icon-star"
+                       rendered="#{usuarioBean.adm}"
+                       label="Finanças">
+                <p:submenu id="subMenuMensal"
+                           label="Faturamento Mensal">
+                    <p:menuitem id="smiConvenio"
+                                value="Por Convênio"
+                                outcome="faturamentoPorConvenio"/>
+                    <p:menuitem id="smiServico"
+                                value="Por Serviço"
+                                outcome="faturamentoPorServico"/>
+                </p:submenu>
+                
+                <p:menuitem id="miDiario"
+                            value="Faturamento Diário"
+                            outcome="faturamentoDiario"/>
+            </p:submenu>
+
+            <p:menuitem id="miSair"
+                        icon="ui-icon-power"
+                        value="Sair"
+                        action="#{usuarioBean.deslogar()}"/>
+        </p:menubar>
+    </h:form>
+</html>
+

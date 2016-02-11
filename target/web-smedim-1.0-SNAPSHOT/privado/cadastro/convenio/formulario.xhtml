@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:dialog id="dlg"
+              widgetVar="dlg"
+              modal="true"
+              header="Cadastrar Convênio">
+        <h:form id="formDialog">
+            <br/>
+
+            <h:inputHidden id="idConvenio" value="#{convenioBean.convenio.id}"/>
+
+            <p:panelGrid columns="2">
+                <h:outputText id="outConvenio" value="Convênio: "/>
+                <p:inputText id="txConvenio"
+                             value="#{convenioBean.convenio.nome}"
+                             label="Convênio"
+                             required="true"/>
+            </p:panelGrid>
+
+            <p>
+                <p:commandButton id="cbSalvarDialog"
+                                 value="Salvar"
+                                 update="txConvenio :formConvenio"
+                                 oncomplete="PF('dlg').hide()"
+                                 action="#{convenioBean.salvar()}"/>
+            </p>
+        </h:form>
+    </p:dialog>
+</html>
+

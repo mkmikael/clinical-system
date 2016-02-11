@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:dialog id="dlg"
+              header="Tabela de Preço"
+              modal="true"
+              widgetVar="dlg"
+              width="300">
+        <h:form id="formDialog">
+            <br/>
+            
+            <p:panelGrid columns="2">
+                <h:outputText id="outServico" value="Serviço: "/>
+                <p:selectOneMenu id="slOMenuServico"
+                                 value="#{servicoConvenioBean.servicoConvenio.servico}"
+                                 converter="#{servicoConversor}"
+                                 label="Serviço"
+                                 required="true">
+                    <f:selectItem itemLabel="--Serviço--"
+                                  noSelectionOption="true"/>
+                    <f:selectItems value="#{servicoConvenioBean.servicos}"
+                                   var="servico"
+                                   itemLabel="#{servico.nome}"
+                                   itemValue="#{servico}"/>
+                </p:selectOneMenu>
+
+                <h:outputText id="outPreco" value="Preço: "/>
+                <p:inputText id="txPreco" 
+                             value="#{servicoConvenioBean.servicoConvenio.preco}"
+                             label="Preço"
+                             size="7"
+                             required="true"/>
+            </p:panelGrid>
+            <p>
+                <p:commandButton id="cbSalvar"
+                                 value="Salvar"
+                                 update=":formServicoConvenio"
+                                 oncomplete="PF('dlg').hide()"
+                                 action="#{servicoConvenioBean.salvar()}"/>
+            </p>
+        </h:form>
+    </p:dialog>
+</html>
+

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="faturamentoDiario_subreport" pageWidth="555" pageHeight="802" whenNoDataType="BlankPage" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="715db086-0450-4e13-81ba-8b795d7f2cc5">
+	<property name="ireport.zoom" value="1.7715610000000042"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SERVICO" class="java.lang.Integer"/>
+	<parameter name="DATA" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[select c.nome as convenio, f.preco as preco, sum(f.num_de_atendimento) as num_de_atendimento, 
+sum(f.preco * f.num_de_atendimento) as total
+from  servico s, convenio c, servico_convenio sc, faturamento f
+where 
+s.id = sc.servico and
+c.id = sc.convenio and
+sc.id = f.servico_convenio and
+sc.servico = $P{SERVICO} and
+f.data_do_faturamento = $P{DATA}
+group by c.nome;]]>
+	</queryString>
+	<field name="convenio" class="java.lang.String"/>
+	<field name="preco" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_de_atendimento" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double"/>
+	<variable name="TOTAL" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="NUM_ATENDIMENTOS" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{num_de_atendimento}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement x="16" y="0" width="155" height="16" uuid="280e409f-5216-4e62-85ff-5d0cf95f0b23"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Convênio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="0" width="116" height="16" uuid="313f6f86-9e4d-400c-b37d-dc9f0527d2d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº de Atendimentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="0" width="100" height="16" uuid="2e9db12c-2b34-451d-bf4d-c4b60e32d714"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total(R$)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="15" width="480" height="1" uuid="b3d1a41e-00c0-4fb9-a790-7a3baa7d754a"/>
+			</line>
+			<staticText>
+				<reportElement x="287" y="0" width="84" height="14" uuid="9e30ed82-6993-48e7-9d15-01c97195b644"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Preço]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="16" y="0" width="155" height="15" uuid="e6d6c587-b3d9-49bd-97cc-c6bcfd779598"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{convenio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="0" width="116" height="15" uuid="99edcbb9-d00c-4f93-81cc-369255ce68cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{num_de_atendimento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="371" y="0" width="100" height="15" uuid="ff9ea5f3-e7f2-4fc7-9699-c637a0c24e6e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="287" y="0" width="84" height="15" uuid="4e015b37-f727-4890-9cc9-985d1c2b20f5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="18">
+			<textField pattern="¤ #,##0.00">
+				<reportElement mode="Transparent" x="371" y="1" width="100" height="15" backcolor="#EAEAEE" uuid="ad313a39-7ba3-4f7c-99cf-f82a0e6cbdac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="171" y="1" width="116" height="15" backcolor="#EAEAEE" uuid="076c1378-7a31-46e7-9b93-50ce69a65207"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{NUM_ATENDIMENTOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="1" y="1" width="130" height="15" backcolor="#EAEAEE" uuid="bc2b4a85-8828-4ac1-bdbe-ce55377b4094"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="0" width="480" height="1" uuid="dda1026c-9a62-4ec4-aa31-a54d8f16682c"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

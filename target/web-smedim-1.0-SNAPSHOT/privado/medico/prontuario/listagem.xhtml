@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/modelo/templateComMenu.xhtml">
+        <ui:define name="conteudo">
+            <h:form id="formProntuario">
+                <p:panel id="panel"
+                         header="Prontuário">
+                    <br/>
+                    <p:growl id="mensagem"/>
+
+                    <p:wizard id="wizardProntuario"
+                              backLabel="Voltar"
+                              nextLabel="Próximo">
+                        <p:tab id="tabPesquisar"
+                               title="Pesquisar Paciente">
+                            <br/>
+                            <p:panel>
+                                <h:panelGrid columns="2">
+                                    <h:outputText id="outCliente"
+                                                  value="Pesquisar: "/>
+                                    <p:autoComplete id="acProntuario"
+                                                    value="#{prontuarioBean.prontuario}"
+                                                    var="prontuario"
+                                                    converter="#{prontuarioConversor}"
+                                                    itemLabel="#{prontuario.cliente.nome}"
+                                                    itemValue="#{prontuario}"
+                                                    size="50"
+                                                    required="true"
+                                                    cache="true"
+                                                    completeMethod="#{prontuarioBean.autoComplete}">
+                                        <p:column>
+                                            <span>#{prontuario.cliente.nome}</span>
+                                        </p:column>
+                                        <p:column>
+                                            <span>#{prontuario.cliente.convenio.nome}</span>
+                                        </p:column>
+                                    </p:autoComplete>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+
+                        <p:tab id="tabProntuario"
+                               title="Prontuário">
+                            <br/>
+
+                            <p:panel id="panelCentral">
+                                <p:panel id="panelDadosPessoais"
+                                         header="Dados Pessoais">
+                                    <h:panelGrid columns="2">
+                                        <h:outputText id="outNome"
+                                                      value="Nome: "/>
+                                        <h:outputText id="mostraNome"
+                                                      value="#{prontuarioBean.prontuario.cliente.nome}"/>
+
+                                        <h:outputText id="outEndereco"
+                                                      value="Endereço: "/>
+                                        <h:outputText id="mostraEndereco"
+                                                      value="#{prontuarioBean.prontuario.cliente.endereco}"/>
+
+                                        <h:outputText id="outNascimento"
+                                                      value="Data de Nascimento: "/>
+                                        <h:outputText id="mostraNascimento"
+                                                      value="#{prontuarioBean.prontuario.cliente.nascimento}">
+                                            <f:convertDateTime dateStyle="long"/>
+                                        </h:outputText>
+
+                                        <h:outputText id="outConvenio"
+                                                      value="Convênio: "/>
+                                        <h:outputText id="mostraConvenio"
+                                                      value="#{prontuarioBean.prontuario.cliente.convenio.nome}"/>
+                                    </h:panelGrid>
+                                </p:panel>
+
+                                <br/>
+
+                                <p:panel id="panelAF">
+                                    <f:facet name="header">
+                                        <h:outputText id="outAF"
+                                                      value="Antecedentes Familiares  "/>
+                                        <p:commandButton id="cbEditarAF"
+                                                         icon="ui-icon-pencil"
+                                                         style="background-color: snow"
+                                                         update=":formAF"
+                                                         onclick="PF('dlgAF').show()"/>
+                                    </f:facet>
+                                    <h:outputText id="outAntFamiliares"
+                                                  value="#{prontuarioBean.prontuario.antecedentesFamiliares}"/>
+                                </p:panel>
+
+                                <br/>
+
+                                <p:panel id="panelAP">
+                                    <f:facet name="header">
+                                        <h:outputText id="outAP"
+                                                      value="Antecedentes Pessoais  "/>
+                                        <p:commandButton id="cbEditarAP"
+                                                         icon="ui-icon-pencil"
+                                                         style="background-color: snow"
+                                                         update=":formAF"
+                                                         onclick="PF('dlgAP').show()"/>
+                                    </f:facet>
+                                    <h:outputText id="outAntPessoais"
+                                                  value="#{prontuarioBean.prontuario.antecedentesPessoais}"/>
+                                </p:panel>
+
+                                <br/>
+
+                                <p:panel header="Histórico de Atendimento">
+                                    <p>
+                                        <p:commandButton id="cbInserir"
+                                                         value="Inserir"
+                                                         update=":formDialog"
+                                                         action="#{prontuarioBean.inserir()}"
+                                                         oncomplete="PF('dlgForm').show()"/>
+                                    </p>
+
+                                    <p:dataTable id="tabelaProntuario"
+                                                 value="#{prontuarioBean.subProntuarios}"
+                                                 var="subProntuario"
+                                                 emptyMessage="sem registros">
+                                        <p:column headerText="Data/Hora">
+                                            <h:outputText id="outAtendimento"
+                                                          value="#{subProntuario.atendimento}"
+                                                          converter="#{dataTempoConversor}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Queixa Principal">
+                                            <h:outputText id="outQueixaPrincipal" 
+                                                          value="#{subProntuario.queixaPrincipal}"/>
+                                        </p:column>
+
+                                        <p:column headerText="Detalhes" style="width: 15%">
+                                            <div align="center">
+                                                <p:commandButton id="cbDetalhes"
+                                                                 icon="ui-icon-plus"
+                                                                 update=":dlgFormList"
+                                                                 oncomplete="PF('dlgList').show()">
+                                                    <f:setPropertyActionListener
+                                                        value="#{subProntuario}"
+                                                        target="#{prontuarioBean.subProntuario}"/>
+                                                </p:commandButton>
+                                            </div>
+                                        </p:column>
+
+                                        <p:column headerText="Editar" style="width: 15%">
+                                            <div align="center">
+                                                <p:commandButton id="cbEditar"
+                                                                 icon="ui-icon-pencil"
+                                                                 update=":formDialog"
+                                                                 oncomplete="PF('dlgForm').show()">
+                                                    <f:setPropertyActionListener
+                                                        value="#{subProntuario}"
+                                                        target="#{prontuarioBean.subProntuario}"/>
+                                                </p:commandButton>
+                                            </div>
+                                        </p:column>
+
+                                        <p:column headerText="Imprimir" style="width: 15%">
+                                            <div align="center">
+                                                <p:commandButton id="cbImprimir"
+                                                                 ajax="false"
+                                                                 icon="ui-icon-document"
+                                                                 action="#{prontuarioBean.exportarParaPDF()}">
+                                                    <f:setPropertyActionListener
+                                                        value="#{subProntuario}"
+                                                        target="#{prontuarioBean.subProntuario}"/>
+                                                </p:commandButton>
+                                            </div>
+                                        </p:column>
+
+                                        <p:column headerText="Excluir" style="width: 15%">
+                                            <div align="center">
+                                                <p:commandButton id="cbExcluir"
+                                                                 icon="ui-icon-trash"
+                                                                 update="@form"
+                                                                 action="#{prontuarioBean.removerProntuario()}">
+                                                    <f:setPropertyActionListener
+                                                        value="#{subProntuario}"
+                                                        target="#{prontuarioBean.subProntuario}"/>
+                                                </p:commandButton>
+                                            </div>
+                                        </p:column>
+                                    </p:dataTable>
+                                </p:panel>
+                            </p:panel>
+                        </p:tab>
+                    </p:wizard>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="/privado/medico/prontuario/formulario.xhtml"/>
+            <ui:include src="/privado/medico/sub_prontuario/formulario.xhtml"/>
+            <ui:include src="/privado/medico/sub_prontuario/visualizacao.xhtml"/>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

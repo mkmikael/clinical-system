@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/modelo/templateComMenu.xhtml">
+        <ui:define name="conteudo">
+            <h:form id="formAgenda">
+                <p:growl id="mensagem"/>
+
+                <p:panel id="panel"
+                         header="Agenda">
+                    <p:calendar id="calendario"
+                                locale="pt_BR"
+                                value="#{agendaBean.date}"
+                                mode="inline">
+                        <p:ajax event="dateSelect"
+                                process="calendario"
+                                update="tabelaAgenda"/>
+                    </p:calendar>
+
+                    <p>
+                        <p:commandButton id="cbAgendar"
+                                         value="Agendar"
+                                         update=":formDialog"
+                                         title="realizar agendamento"
+                                         onclick="PF('dlg').show()"
+                                         action="#{agendaBean.incluir()}"/>
+                    </p>
+
+                    <p:dataTable id="tabelaAgenda"
+                                 widgetVar="tabela"
+                                 value="#{agendaBean.agendas}"
+                                 var="agenda"
+                                 emptyMessage="sem agendamentos"
+                                 paginator="true"
+                                 rows="10">
+                        <p:column headerText="Cliente">
+                            <h:outputText id="outCliente" value="#{agenda.nomeCliente}"/>
+                        </p:column>
+
+                        <p:column headerText="Convênio">
+                            <h:outputText id="outConvenio" value="#{agenda.convenio.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Serviço">
+                            <h:outputText id="outServico" value="#{agenda.servico.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Data/Hora" style="width: 15%">
+                            <h:outputText id="outMarcado"
+                                          value="#{agenda.marcado}"
+                                          converter="#{dataTempoConversor}"/>
+                        </p:column>
+
+                        <p:column headerText="Editar" style="width: 7%">
+                            <div align="center">
+                                <p:commandButton id="cbEditar"
+                                                 icon="ui-icon-pencil"
+                                                 update=":formDialog"
+                                                 title="editar agendamento"
+                                                 oncomplete="PF('dlg').show()">
+                                    <f:setPropertyActionListener
+                                        value="#{agenda}"
+                                        target="#{agendaBean.agenda}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+
+                        <p:column headerText="Excluir" style="width: 7%">
+                            <div align="center">
+                                <p:commandButton id="cbExcluir"
+                                                 icon="ui-icon-trash"
+                                                 update="@form"
+                                                 title="excluir agendamento"
+                                                 action="#{agendaBean.deletar()}">
+                                    <f:setPropertyActionListener
+                                        value="#{agenda}"
+                                        target="#{agendaBean.agenda}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="/privado/agenda/formulario.xhtml"/>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

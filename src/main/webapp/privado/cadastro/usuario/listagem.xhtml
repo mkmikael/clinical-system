@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/modelo/templateComMenu.xhtml">
+        <ui:define name="conteudo">
+            <p:panel id="panel"
+                     header="Listagem de Usuários">
+                <h:form id="formUsuario">
+                    <p:growl id="mensagem"/>
+
+                    <p>
+                        <p:commandButton id="cbInserir"
+                                         value="Inserir"
+                                         update=":formDialog"
+                                         title="inserir um usuário"
+                                         onclick="PF('dlg').show()"/>
+                    </p>
+
+                    <p:dataTable id="tabelaUsuario"
+                                 value="#{usuarioBean.usuarios}"
+                                 var="usuario"
+                                 emptyMessage="sem usuarios">
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{usuario.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Login">
+                            <h:outputText value="#{usuario.login}"/>
+                        </p:column>
+
+                        <p:column headerText="Senha">
+                            <h:outputText value="#{usuario.senha}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Médico">
+                            <h:outputText value="#{usuario.medico.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Perfil">
+                            <div align="center">
+                                <h:outputText value="#{usuario.perfil}"/>
+                            </div>
+                        </p:column>
+
+                        <p:column headerText="Editar" style="width: 10%">
+                            <div align="center">
+                                <p:commandButton id="cbEditar"
+                                                 icon="ui-icon-pencil"
+                                                 update=":formDialog"
+                                                 title="editar usuário"
+                                                 oncomplete="PF('dlg').show()">
+                                    <f:setPropertyActionListener
+                                        value="#{usuario}"
+                                        target="#{usuarioBean.usuario}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+
+                        <p:column headerText="Excluir" style="width: 10%">
+                            <div align="center">
+                                <p:commandButton id="cbExcluir"
+                                                 icon="ui-icon-trash"
+                                                 update="@form"
+                                                 title="excluir usuário"
+                                                 action="#{servicoBean.deletar()}">
+                                    <f:setPropertyActionListener
+                                        value="#{usuario}"
+                                        target="#{usuarioBean.usuario}"/>
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:panel>
+
+            <ui:include src="/privado/cadastro/usuario/formulario.xhtml"/>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

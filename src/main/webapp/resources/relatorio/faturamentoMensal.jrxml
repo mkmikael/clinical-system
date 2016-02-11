@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="faturamentoMensal" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e68ffb24-116e-433f-a1c6-aa8c1572b80f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/bpmlab/NetBeansProjects/SMEDIM/src/java/smedim/rn/relatorio/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer"/>
+	<parameter name="MES" class="java.lang.Integer"/>
+	<parameter name="FATURAMENTO_TOTAL" class="java.lang.Double"/>
+	<parameter name="NUM_ATENDIMENTOS" class="java.lang.Long"/>
+	<parameter name="MES_TEXTO" class="java.lang.String"/>
+	<parameter name="IMAGEM" class="java.lang.String">
+		<defaultValueExpression><![CDATA["/home/bpmlab/NetBeansProjects/SMEDIM/build/web/WEB-INF/classes/smedim/rn/relatorio/imagens/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT s.* FROM servico s, faturamento f, servico_convenio sc 
+WHERE 
+f.servico_convenio = sc.id  AND 
+sc.servico = s.id AND 
+YEAR(f.data_do_faturamento) = $P{ANO} AND 
+MONTH(f.data_do_faturamento) = $P{MES}
+ORDER BY s.nome]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="142" splitType="Stretch">
+			<staticText>
+				<reportElement x="173" y="57" width="237" height="23" uuid="960d0c40-7f95-430d-a93a-7bd48a1e63cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Relatório de Faturamento Mensal]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement x="40" y="32" width="94" height="84" uuid="3700ba67-7623-4979-8428-f2c60884ee62"/>
+				<imageExpression><![CDATA[$P{IMAGEM} + "logo_smedim.gif"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="173" y="80" width="237" height="20" uuid="c96b9f6b-5913-4390-aa69-41381b24e099"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Mês de " + $P{MES_TEXTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<rectangle>
+				<reportElement x="53" y="1" width="279" height="55" forecolor="#44CA4F" uuid="e26a8b34-e502-4f23-b3ae-93695445e689"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="65" y="9" width="152" height="20" uuid="35ccc90b-fbe0-4338-9197-e0fed00b3b8a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Faturamento Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="29" width="152" height="20" uuid="f6be2038-de95-4e1e-91d8-8de0c5e10b18"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Total de Atendimentos:]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="217" y="9" width="100" height="20" uuid="60e386da-5069-4ac2-8898-6124baaff06a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FATURAMENTO_TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="217" y="29" width="100" height="20" uuid="1d43ca39-e11d-4c70-a7c3-eaee265105a7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NUM_ATENDIMENTOS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="69" splitType="Stretch">
+			<rectangle>
+				<reportElement x="52" y="0" width="511" height="20" forecolor="#F7FDF3" backcolor="#44CA4F" uuid="e794eee2-1cb6-4644-9cf0-107deef8c674"/>
+			</rectangle>
+			<textField>
+				<reportElement x="69" y="0" width="494" height="20" uuid="17f1d283-d50d-40a5-b554-c8c1d0d926d1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="61" y="22" width="313" height="44" uuid="d65e2a2d-b9fe-4fe4-9f58-16af3c65ccc5"/>
+				<subreportParameter name="SERVICO">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ANO">
+					<subreportParameterExpression><![CDATA[$P{ANO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MES">
+					<subreportParameterExpression><![CDATA[$P{MES}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "faturamentoMensalSubReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50"/>
+	</columnFooter>
+</jasperReport>

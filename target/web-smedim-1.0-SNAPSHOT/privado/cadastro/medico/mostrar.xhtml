@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/modelo/templateComMenu.xhtml">
+    <ui:define name="conteudo">
+        <f:metadata>
+            <f:viewParam name="id" value="#{medicoBean.medico}" converter="#{medicoConversor}"/>
+        </f:metadata>
+
+        <p:layout>
+            <p:layoutUnit position="center">
+                <h:form id="form">
+                    <h:inputHidden id="medicoId" value="#{medicoBean.medico}" converter="#{medicoConversor}"/>
+                    <p:panel header="Convênios">
+                        <p:selectManyCheckbox id="convenios"
+                                              value="#{medicoBean.medico.convenios}"
+                                              layout="grid" columns="2"
+                                              converter="#{convenioConversor}">
+                            <f:selectItems value="#{medicoBean.convenios}"
+                                           var="c"
+                                           itemLabel="#{c.nome}"
+                                           itemValue="#{c}"/>
+                            <p:ajax process="@form" listener="#{medicoBean.saveListener}" />
+                        </p:selectManyCheckbox>
+                    </p:panel>
+
+                    <p:panel header="Serviços">
+                        <p:selectManyCheckbox id="servicos"
+                                              value="#{medicoBean.medico.servicos}"
+                                              layout="grid" columns="2"
+                                              converter="#{servicoConversor}">
+                            <f:selectItems value="#{medicoBean.servicos}"
+                                           var="s"
+                                           itemLabel="#{s.nome}"
+                                           itemValue="#{s}"/>
+                            <p:ajax process="@form" listener="#{medicoBean.saveListener}"/>
+                        </p:selectManyCheckbox>
+                    </p:panel>
+                </h:form>
+                <br/>
+                <p:panel header="Faturamentos">
+                    <p:dataTable value="#{medicoBean.medico.faturamentos}" var="f">
+                        <p:column headerText="Convênio">
+                            <h:outputText value="#{f.servicoConvenio.convenio.nome}"/>
+                        </p:column>
+                        <p:column headerText="Serviço">
+                            <h:outputText value="#{f.servicoConvenio.servico.nome}"/>
+                        </p:column>
+                        <p:column headerText="Num Aten.">
+                            <h:outputText value="#{f.numDeAtendimento}"/>
+                        </p:column>
+                        <p:column headerText="Preço">
+                            <h:outputText value="#{f.preco}">
+                                <f:convertNumber type="currency"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Total">
+                            <h:outputText value="#{f.preco * f.numDeAtendimento}">
+                                <f:convertNumber type="currency"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Data">
+                            <h:outputText value="#{f.dataDoFaturamento}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="400">
+                <h:panelGrid columns="2">
+                    <h:outputText styleClass="font-small" value="Nome"/>
+                    <h:outputText value="${medicoBean.medico.nome}"/>
+                </h:panelGrid>
+            </p:layoutUnit>
+        </p:layout>
+    </ui:define>
+</ui:composition>
+</html>

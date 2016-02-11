@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <p:dialog id="dlg"
+              widgetVar="dlg"
+              modal="true"
+              header="Cadastrar Cliente">
+        <h:form id="formDialog">
+            <br/>
+
+            <h:inputHidden id="idCliente" value="#{clienteBean.cliente.id}"/>
+
+            <p:panelGrid id="grid" columns="2">
+                <h:outputText id="outNome" value="Nome: "/>
+                <p:inputText id="txNome"
+                             value="#{clienteBean.cliente.nome}"
+                             size="40"
+                             label="Nome"
+                             required="true"/>
+                
+                <h:outputText id="outEndereco" value="Endereço: "/>
+                <p:inputText id="txEndereco"
+                             value="#{clienteBean.cliente.endereco}"
+                             size="40"
+                             label="Endereço"
+                             required="true"/>
+                
+                <h:outputText id="outNascimento" value="Nascimento: "/>
+                <p:inputMask id="txNascimento"
+                             value="#{clienteBean.cliente.nascimento}"
+                             mask="99/99/9999"
+                             label="Nascimento"
+                             required="true"
+                             converter="#{dataConversor}"/>
+                
+                <h:outputText id="outConvenio" value="Convênio: "/>
+                <p:selectOneMenu id="slOMenuConvenio"
+                                 value="#{clienteBean.cliente.convenio}"
+                                 converter="#{convenioConversor}"
+                                 label="Convênio"
+                                 required="true">
+                    <f:selectItem itemLabel="--Convênio--" noSelectionOption="true"/>
+                    <f:selectItems value="#{convenioBean.convenios}"
+                                   var="convenio"
+                                   itemLabel="#{convenio.nome}"
+                                   itemValue="#{convenio}"/>
+                </p:selectOneMenu>
+                
+                <h:outputText id="outMedico" value="Médico: "/>
+                <p:selectOneMenu id="slOMedicoConvenio"
+                                 value="#{clienteBean.cliente.medico}"
+                                 converter="#{medicoConversor}"
+                                 label="Médico"
+                                 required="true">
+                    <f:selectItem itemLabel="--Médico--" noSelectionOption="true"/>
+                    <f:selectItems value="#{clienteBean.medicos}"
+                                   var="medico"
+                                   itemLabel="#{medico.nome}"
+                                   itemValue="#{medico}"/>
+                </p:selectOneMenu>
+                
+                <h:outputText id="outTelefone1" value="Contato 1: "/>
+                <p:inputMask id="txTelefone1"
+                             value="#{clienteBean.cliente.fone1}"
+                             mask="9999-9999"/>
+                
+                <h:outputText id="outTelefone2" value="Contato 2: "/>
+                <p:inputMask id="txTelefone2"
+                             value="#{clienteBean.cliente.fone2}"
+                             mask="9999-9999"/>
+            </p:panelGrid>
+
+            <p>
+                <p:commandButton id="cbSalvar"
+                                 value="Salvar"
+                                 update="@form :formCliente"
+                                 oncomplete="PF('dlg').hide()"
+                                 action="#{clienteBean.salvar()}"/>
+            </p>
+        </h:form>
+    </p:dialog>
+</html>
+

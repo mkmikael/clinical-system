@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <p:dialog id="dlgAF"
+              widgetVar="dlgAF"
+              header="Antecedentes Familiares"
+              modal="true">
+        <h:form id="formAF">
+            <br/>
+
+            <p:inputTextarea id="txaAF"
+                             value="#{prontuarioBean.prontuario.antecedentesFamiliares}"
+                             required="true"
+                             cols="40"/>
+
+            <div align="right">
+                <p>
+                    <p:commandButton id="cbSalvar"
+                                     value="Salvar"
+                                     update=":formProntuario"
+                                     action="#{prontuarioBean.salvar()}"
+                                     onclick="PF('dlgAF').hide()"/>
+                </p>
+            </div>
+        </h:form>
+    </p:dialog>
+
+    <p:dialog id="dlgAP"
+              widgetVar="dlgAP"
+              header="Antecedentes Pessoais"
+              modal="true">
+        <h:form id="formAP">
+            <br/>
+
+            <p:inputTextarea id="txaAP"
+                             value="#{prontuarioBean.prontuario.antecedentesPessoais}"
+                             required="true"
+                             cols="40"/>
+
+            <div align="right">
+                <p>
+                    <p:commandButton id="cbSalvar"
+                                     value="Salvar"
+                                     update=":formProntuario"
+                                     action="#{prontuarioBean.salvar()}"
+                                     onclick="PF('dlgAP').hide()"/>
+                </p>
+            </div>
+        </h:form>
+    </p:dialog>
+</html>
+

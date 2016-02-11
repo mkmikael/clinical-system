@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/modelo/templateComMenu.xhtml">
+        <ui:define name="conteudo">
+            <h:form id="formMensal">
+                <p:panel id="panel"
+                         header="Faturamento Mensal Por Serviço">
+                    <p:growl id="mensagem"/>
+
+                    <p>
+                        <p:panel id="panelControle">
+                            <h:panelGrid id="grid" columns="2">
+                                <span>Mês: </span>
+                                <p:selectOneMenu id="slOMenuMes"
+                                                 value="#{faturamentoPorServicoBean.mes}"
+                                                 label="Mês"
+                                                 required="true">
+                                    <f:selectItem itemLabel="Janeiro" itemValue="1"/>
+                                    <f:selectItem itemLabel="Fevereiro" itemValue="2"/>
+                                    <f:selectItem itemLabel="Março" itemValue="3"/>
+                                    <f:selectItem itemLabel="Abril" itemValue="4"/>
+                                    <f:selectItem itemLabel="Maio" itemValue="5"/>
+                                    <f:selectItem itemLabel="Junho" itemValue="6"/>
+                                    <f:selectItem itemLabel="Julho" itemValue="7"/>
+                                    <f:selectItem itemLabel="Agosto" itemValue="8"/>
+                                    <f:selectItem itemLabel="Setembro" itemValue="9"/>
+                                    <f:selectItem itemLabel="Outubro" itemValue="10"/>
+                                    <f:selectItem itemLabel="Novembro" itemValue="11"/>
+                                    <f:selectItem itemLabel="Dezembro" itemValue="12"/>
+                                </p:selectOneMenu>
+
+                                <span>Ano: </span>
+                                <p:inputMask id="txAno"
+                                             value="#{faturamentoPorServicoBean.ano}"
+                                             size="8"
+                                             label="Ano"
+                                             required="true"
+                                             mask="9999"/>
+                            </h:panelGrid>
+                            <h:panelGrid columns="2">
+                                <p:commandButton id="cbConsultar"
+                                                 icon="ui-icon-search"
+                                                 update="@form"/>
+                                <p:commandButton id="cbRelatorio"
+                                                 ajax="false"
+                                                 icon="ui-icon-document"
+                                                 action="#{faturamentoPorServicoBean.exportarParaPDF()}"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p>
+
+                    <p>
+                        <p:panel>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Faturamento Total: "
+                                              style="font-weight: bold"/>
+                                <h:outputText value="#{faturamentoPorServicoBean.totalGeral}"
+                                              style="font-weight: bold">
+                                    <f:convertNumber type="currency"
+                                                     currencySymbol="R$"
+                                                     maxFractionDigits="2"
+                                                     minFractionDigits="2"/>
+                                </h:outputText>
+
+                                <h:outputText value="Nº Total de Atendimentos: "
+                                              style="font-weight: bold"/>
+                                <h:outputText value="#{faturamentoPorServicoBean.numGeral}"
+                                              style="font-weight: bold"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p>
+
+                    <p:dataGrid id="tabelaSuperior"
+                                value="#{faturamentoPorServicoBean.servicos}"
+                                var="servico"
+                                columns="1"
+                                emptyMessage="sem registros">
+                        <p:panel>
+                            <f:facet name="header">
+                                <span>#{servico.nome}</span>
+                            </f:facet>
+
+                            #{faturamentoPorServicoBean.setServico(servico)}
+
+                            <p:dataTable id="tabela"
+                                         value="#{faturamentoPorServicoBean.faturamentos}"
+                                         var="faturamento"
+                                         emptyMessage="sem registros">
+                                <p:column headerText="Data">
+                                    <h:outputText id="outData"
+                                                  value="#{faturamento.dataDoFaturamento}"
+                                                  converter="#{dataConversor}"/>
+                                </p:column>
+
+                                <p:column headerText="Convênio">
+                                    <span>#{faturamento.servicoConvenio.convenio.nome}</span>
+                                </p:column>
+
+                                <p:column headerText="Preço">
+                                    <h:outputText id="outPreco" 
+                                                  value="#{faturamento.servicoConvenio.preco}">
+                                        <f:convertNumber type="currency"
+                                                         currencySymbol="R$"
+                                                         maxFractionDigits="2"
+                                                         minFractionDigits="2"/>
+                                    </h:outputText>
+                                </p:column>
+
+                                <p:column headerText="Nº de Atendimentos"
+                                          style="width: 15%">
+                                    <div align="center">
+                                        <span>#{faturamento.numDeAtendimento}</span>
+                                    </div>
+                                    <f:facet name="footer">
+                                        <span>Total: </span>
+                                        <span>#{faturamentoPorServicoBean.num}</span>
+                                    </f:facet>
+                                </p:column>
+
+                                <p:column headerText="Sub-Total">
+                                    <div align="center">
+                                        <h:outputText id="outValor"
+                                                      value="#{faturamento.numDeAtendimento
+                                                               * faturamento.servicoConvenio.preco}">
+                                            <f:convertNumber type="currency"
+                                                             currencySymbol="R$"
+                                                             maxFractionDigits="2"
+                                                             minFractionDigits="2"/>
+                                        </h:outputText>
+                                    </div>
+
+                                    <f:facet name="footer">
+                                        <span>Total: </span>
+                                        <h:outputText id="outTotal"
+                                                      value="#{faturamentoPorServicoBean.total}">
+                                            <f:convertNumber type="currency"
+                                                             currencySymbol="R$"
+                                                             maxFractionDigits="2"
+                                                             minFractionDigits="2"/>
+                                        </h:outputText>
+                                    </f:facet>
+                                </p:column>
+                            </p:dataTable>
+                        </p:panel>
+                    </p:dataGrid>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <p:dialog id="dlgForm"
+              widgetVar="dlgForm"
+              modal="true"
+              header="Prontuário">
+        <h:form id="formDialog">
+            <br/>
+
+            <p:panel>
+                <h:outputText id="outAtendimento" 
+                              value="Data de Atendimento: "/>
+                <h:outputText id="outData"
+                              value="#{prontuarioBean.subProntuario.atendimento}"
+                              converter="#{dataTempoConversor}"/>
+            </p:panel>
+
+            <br/>
+
+            <p:panel>
+                <h:panelGrid columns="4">
+                    <h:outputText id="outQueixaPrincipal" value="Queixa Principal: "/>
+                    <p:inputTextarea id="txaQueixaPrincipal"
+                                     value="#{prontuarioBean.subProntuario.queixaPrincipal}"/>
+
+                    <h:outputText id="outHistoricoAtual"
+                                  value="Histórico Atual da Doença: "/>
+                    <p:inputTextarea id="txaHistoricoAtual"
+                                     value="#{prontuarioBean.subProntuario.historicoAtual}"/>
+
+                    <h:outputText id="outExameClinico"
+                                  value="Exame Clínico: "/>
+                    <p:inputTextarea id="txaExameClinico"
+                                     value="#{prontuarioBean.subProntuario.exameClinico}"/>
+
+                    <h:outputText id="outImpressaoDiagnostica"
+                                  value="Impressão Diagnóstica: "/>
+                    <p:inputTextarea id="txaImpressaoDiagnostica"
+                                     value="#{prontuarioBean.subProntuario.impressaoDiagnostica}"/>
+
+                    <h:outputText id="outCondutaTerapeutica"
+                                  value="Conduta Terapêutica: "/>
+                    <p:inputTextarea id="txaCondutaTerapeutica"
+                                     value="#{prontuarioBean.subProntuario.condutaTerapeutica}"/>
+
+                    <h:outputText id="outEvolucao"
+                                  value="Evolução: "/>
+                    <p:inputTextarea id="txaEvolucao"
+                                     value="#{prontuarioBean.subProntuario.evolucao}"/>
+                </h:panelGrid>
+            </p:panel>
+            <p>
+                <p:commandButton id="cbSalvar"
+                                 value="Salvar"
+                                 update=":formProntuario"
+                                 action="#{prontuarioBean.addProntuario()}"
+                                 oncomplete="PF('dlgForm').hide()"/>
+            </p>
+        </h:form>
+    </p:dialog>
+</html>
+

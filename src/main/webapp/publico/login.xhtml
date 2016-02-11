@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Sistema SMEDIM</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:growl id="mensagem"/>
+
+            <div align="center" style="padding-top: 12%">
+                <p:panel id="panel" style="width: 30%; padding-bottom: 17px">
+                    <div align="center">
+                        <p>
+                            <p:clock id="relogio" pattern="dd/MM/yyyy HH:mm:ss"/>
+                        </p>
+                        
+                        <h2 style="font-family: fantasy">Sistema SMEDIM</h2>
+                        
+                        <h:panelGrid id="panelGrid" columns="1">
+                            <p:inputText id="txLogin"
+                                         placeholder="Login"
+                                         value="#{usuarioBean.usuario.login}"
+                                         label="Login"
+                                         required="true"/>
+                            <p:password id="txSenha"
+                                        placeholder="Senha"
+                                        value="#{usuarioBean.usuario.senha}"
+                                        label="Senha"
+                                        required="true"/>
+                        </h:panelGrid>
+                        
+                        <p:commandButton id="cbEntrar"
+                                         ajax="false"
+                                         value="Entrar"
+                                         action="#{usuarioBean.autenticar()}"/>
+                    </div>
+                </p:panel>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

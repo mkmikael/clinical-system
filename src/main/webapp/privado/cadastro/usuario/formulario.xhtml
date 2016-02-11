@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:dialog id="dlgCadastro"
+              widgetVar="dlg"
+              modal="true"
+              header="Cadastro de Usuário">
+        <h:form id="formDialog">
+            <br/>
+
+            <h:inputHidden id="id" value="#{usuarioBean.usuario.id}"/>
+
+            <p:panelGrid columns="2">
+                <h:outputText id="outNome" value="Nome: "/>
+                <p:inputText id="txNome"
+                             value="#{usuarioBean.usuario.nome}"
+                             label="Nome"
+                             required="true"/>
+                
+                <h:outputText id="outLogin" value="Login: "/>
+                <p:inputText id="txLogin"
+                             value="#{usuarioBean.usuario.login}"
+                             label="Login"
+                             required="true"/>
+                
+                <h:outputText id="outSenha" value="Senha: "/>
+                <p:password id="txSenha"
+                             value="#{usuarioBean.usuario.senha}"
+                             label="Senha"
+                             required="true"/>
+                
+                <h:outputText id="outPerfil" value="Perfil: "/>
+                <p:selectOneMenu id="slOMenuPerfil"
+                                 value="#{usuarioBean.usuario.perfil}"
+                                 label="Perfil"
+                                 required="true">
+                    <f:selectItem itemLabel="--Perfil--" noSelectionOption="true"/>
+                    <f:selectItem itemLabel="Administrador" itemValue="A"/>
+                    <f:selectItem itemLabel="Médico" itemValue="M"/>
+                    <f:selectItem itemLabel="Recepção" itemValue="R"/>
+                </p:selectOneMenu>
+                
+                 <h:outputText value="Médico: "/>
+                <p:selectOneMenu id="slOMenuMedico"
+                                 value="#{usuarioBean.usuario.medico}"
+                                 converter="#{medicoConversor}"
+                                 label="Médico"
+                                 required="true">
+                    <f:selectItem itemLabel="--Médico--"
+                                  noSelectionOption="true"/>
+                    <f:selectItems value="#{usuarioBean.medicos}"
+                                   var="medico"
+                                   itemLabel="#{medico.nome}"
+                                   itemValue="#{medico}"/>
+                </p:selectOneMenu>
+            </p:panelGrid>
+            <p>
+                <p:commandButton id="cbSalvar"
+                                 value="Salvar"
+                                 update=":formUsuario"
+                                 action="#{usuarioBean.salvar()}"
+                                 oncomplete="PF('dlg').hide()"/>
+            </p>
+        </h:form>
+    </p:dialog>
+</html>
+

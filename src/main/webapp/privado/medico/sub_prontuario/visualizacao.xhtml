@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <p:dialog id="dlgList"
+              widgetVar="dlgList"
+              modal="true"
+              header="Prontuário">
+        <h:form id="dlgFormList">
+            <br/>
+
+            <p:panel>
+                <h:outputText id="outAtendimento" 
+                              value="Data de Atendimento: "/>
+                <h:outputText id="outData"
+                              value="#{prontuarioBean.subProntuario.atendimento}"
+                              converter="#{dataTempoConversor}"/>
+            </p:panel>
+
+            <br/>
+
+            <h:panelGrid columns="3">
+                <p:panel id="panelQueixaPrincipal"
+                         header="Queixa Principal">
+                    <h:outputText id="outQueixaPrincipal" 
+                                  value="#{prontuarioBean.subProntuario.queixaPrincipal}"/>
+                </p:panel>
+
+                <p:panel id="panelHistoricoAtual"
+                         header="Histórico Atual da Doença">
+                    <h:outputText id="outHistoricoAtual" 
+                                  value="#{prontuarioBean.subProntuario.historicoAtual}"/>
+                </p:panel>
+
+                <p:panel id="panelExameClinico"
+                         header="Exame Clínico">
+                    <h:outputText id="outExameClinico" 
+                                  value="#{prontuarioBean.subProntuario.exameClinico}"/>
+                </p:panel>
+
+                <p:panel id="panelImpressaoDiagnostica"
+                         header="Impressão Diagnóstica">
+                    <h:outputText id="outImpressaoDiagnostica" 
+                                  value="#{prontuarioBean.subProntuario.impressaoDiagnostica}"/>
+                </p:panel>
+
+                <p:panel id="panelCondutaTerapeutica"
+                         header="Conduta Terapêutica">
+                    <h:outputText id="outCondutaTerapeutica" 
+                                  value="#{prontuarioBean.subProntuario.condutaTerapeutica}"/>
+                </p:panel>
+
+                <p:panel id="panelEvolucao"
+                         header="Evolução">
+                    <h:outputText id="outEvolucao" 
+                                  value="#{prontuarioBean.subProntuario.evolucao}"/>
+                </p:panel>
+            </h:panelGrid>
+        </h:form>
+    </p:dialog>
+</html>
+

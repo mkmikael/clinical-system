@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:dialog id="dlg"
+              widgetVar="dlg"
+              modal="true"
+              height="270"
+              header="Agendamento">
+        <h:form id="formDialog">
+            <br/>
+
+            <h:inputHidden id="idAgenda" value="#{agendaBean.agenda.id}"/>
+            
+            <p:panelGrid columns="2">
+                <h:outputText id="outCliente" value="Cliente: "/>
+                <p:autoComplete id="txCliente"
+                                value="#{agendaBean.agenda.nomeCliente}"
+                                var="cliente"
+                                itemLabel="#{cliente.nome}"
+                                itemValue="#{cliente.nome}"
+                                completeMethod="#{clienteBean.autoComplete}"
+                                minQueryLength="2"
+                                cache="true"
+                                size="40"
+                                label="Cliente"
+                                required="true"/>
+                
+                <h:outputText id="outConvenio" value="Convênio: "/>
+                <p:selectOneMenu id="slOMenuConvenio"
+                                 value="#{agendaBean.agenda.convenio}"
+                                 converter="#{convenioConversor}"
+                                 required="true"
+                                 label="Convenio">
+                    <f:selectItem itemLabel="--Convenio--"
+                                  noSelectionOption="true"/>
+                    <f:selectItems value="#{convenioBean.convenios}"
+                                   var="convenio"
+                                   itemLabel="#{convenio.nome}"
+                                   itemValue="#{convenio}"/>
+                    <f:ajax event="valueChange" render="slOMenuServico"/>
+                </p:selectOneMenu>
+
+                <h:outputText id="outServico" value="Serviço: "/>
+                <p:selectOneMenu id="slOMenuServico"
+                                 value="#{agendaBean.agenda.servico}"
+                                 converter="#{servicoConversor}"
+                                 label="Serviço"
+                                 required="true">
+                    <f:selectItem itemLabel="--Serviço--"
+                                  noSelectionOption="true"/>
+                    <f:selectItems value="#{agendaBean.servicoConvenios}"
+                                   var="servicoConvenio"
+                                   itemLabel="#{servicoConvenio.servico.nome}"
+                                   itemValue="#{servicoConvenio.servico}"/>
+                </p:selectOneMenu>
+
+                <h:outputText id="outMarcado" value="Data/Hora: "/>
+                <p:calendar id="txMarcado"
+                            value="#{agendaBean.agenda.marcado}"
+                            pattern="dd/MM/yyyy HH:mm"/>
+            </p:panelGrid>
+            
+            <p>
+                <p:commandButton id="cbSalvar"
+                                 value="Salvar"
+                                 update=":formAgenda"
+                                 oncomplete="PF('dlg').hide()"
+                                 action="#{agendaBean.salvar()}"/>
+            </p>
+        </h:form>
+    </p:dialog>
+</html>
+

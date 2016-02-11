@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/modelo/templateComMenu.xhtml">
+        <ui:define name="conteudo">
+            <h:form id="formMedico">
+                <p:growl id="mensagem"/>
+
+                <p:panel id="panel" header="Listagem de Médicos">
+                    <p>
+                        <p:commandButton id="cbInserir"
+                                         value="Inserir"
+                                         update=":formDialog"
+                                         title="inserir um médico"
+                                         onclick="PF('dlg').show()"/>
+                    </p>
+
+                    <p:dataTable id="tabelaMedico"
+                                 value="#{medicoBean.medicos}"
+                                 var="medico"
+                                 paginator="true"
+                                 rows="10"
+                                 emptyMessage="sem médicos"
+                                 style="width: 40%">
+
+                        <p:column headerText="Nome">
+                            <h:link includeViewParams="true" outcome="medico/mostrar">
+                                <h:outputText id="nome" value="#{medico.nome}"/>
+                                <f:param name="id" value="#{medico.id}" />
+                            </h:link>
+                        </p:column>
+
+                        <p:column headerText="Editar" style="width: 15%">
+                            <div align="center">
+                                <p:commandButton id="cbEditar"
+                                                 icon="ui-icon-pencil"
+                                                 update=":formDialog"
+                                                 oncomplete="PF('dlg').show()">
+                                    <f:setPropertyActionListener
+                                        value="#{medico}"
+                                        target="#{medicoBean.medico}"/>     
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+
+                        <p:column headerText="Excluir" style="width: 15%">
+                            <div align="center">
+                                <p:commandButton id="cbExcluir"
+                                                 icon="ui-icon-trash"
+                                                 update="@form"
+                                                 title="excluir um convênio"
+                                                 action="#{medicoBean.deletar()}">
+                                    <f:setPropertyActionListener
+                                        value="#{medico}"
+                                        target="#{medicoBean.medico}"/>     
+                                </p:commandButton>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="/privado/cadastro/medico/formulario.xhtml"/>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

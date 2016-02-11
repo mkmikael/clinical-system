@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/SMEDIM">
+    <Resource name="jdbc/development"
+              url="jdbc:mysql://localhost:3306/smedim"
+              username="root"
+              password=""
+              driverClassName="com.mysql.jdbc.Driver"
+              type="javax.sql.DataSource"
+              auth="Container"
+              maxActive="50"
+              maxIdle="3"
+              maxWait="10000"/>
+
+    <Resource name="BeanManager"
+              auth="Container"
+              type="javax.enterprise.inject.spi.BeanManager"
+              factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+</Context>
