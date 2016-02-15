@@ -6,20 +6,12 @@
 package smedim.util;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 
 /**
  *
  * @author Mikael Lima
  */
 public class Util implements Serializable {
-
-    public static LocalDateTime converter(Date date) {
-        return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
-    }
- 
     
     public static String converteData(int i) {
         switch (i) {

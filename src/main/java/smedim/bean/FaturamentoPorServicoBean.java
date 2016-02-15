@@ -5,19 +5,6 @@
  */
 package smedim.bean;
 
-import java.io.File;
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.enterprise.context.ConversationScoped;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import smedim.entidade.Faturamento;
 import smedim.entidade.Servico;
 import smedim.rn.FaturamentoRN;
@@ -25,6 +12,16 @@ import smedim.rn.ServicoRN;
 import smedim.rn.relatorio.GerarRelatorio;
 import smedim.util.DAOUtil;
 import smedim.util.Util;
+
+import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.File;
+import java.io.Serializable;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -42,8 +39,8 @@ public class FaturamentoPorServicoBean implements Serializable {
     private List<Faturamento> faturamentos;
     private Servico servico;
 
-    private Integer ano = LocalDate.now().getYear();
-    private Integer mes = LocalDate.now().getMonthValue();
+    private Integer ano = GregorianCalendar.getInstance().get(GregorianCalendar.YEAR);
+    private Integer mes = GregorianCalendar.getInstance().get(GregorianCalendar.MONTH) + 1;
     private Double total;
     private Double totalGeral;
     private Long num;

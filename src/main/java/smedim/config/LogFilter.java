@@ -31,7 +31,7 @@ public class LogFilter implements PhaseListener {
         }
         Object user = request.getSession().getAttribute("usuarioLogado");
         String username = "";
-        if (user != null instanceof Usuario) {
+        if (user != null && user instanceof Usuario) {
             username = ((Usuario)user).getLogin();
         }
 

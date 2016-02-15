@@ -81,12 +81,12 @@
                                 var="servico"
                                 columns="1"
                                 emptyMessage="sem registros">
-                        <p:panel>
+                        #{faturamentoPorServicoBean.setServico(servico)}
+                        <p:panel rendered="#{not empty faturamentoPorServicoBean.faturamentos}">
                             <f:facet name="header">
                                 <span>#{servico.nome}</span>
                             </f:facet>
 
-                            #{faturamentoPorServicoBean.setServico(servico)}
 
                             <p:dataTable id="tabela"
                                          value="#{faturamentoPorServicoBean.faturamentos}"

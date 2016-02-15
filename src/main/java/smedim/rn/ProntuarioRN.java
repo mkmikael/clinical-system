@@ -11,7 +11,10 @@ import java.util.Collections;
 import java.util.List;
 import smedim.dao.GenericDAO;
 import smedim.dao.ProntuarioDAO;
+import smedim.entidade.Cliente;
 import smedim.entidade.Prontuario;
+import smedim.entidade.Usuario;
+import smedim.util.BeanUtil;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -44,9 +47,14 @@ public class ProntuarioRN implements Serializable {
         } else {
             List<Prontuario> lista = obterTodos();
             List<Prontuario> filtrado = new ArrayList<>();
-
+            Object o = BeanUtil.lerDaSessao("usuarioLogado");
+            Usuario u = null;
+            if (o != null && o instanceof Usuario)
+                u = (Usuario) BeanUtil.lerDaSessao("usuarioLogado");
             for (Prontuario prontuario : lista) {
-                if (prontuario.getCliente().getNome().toUpperCase().contains(busca.toUpperCase())) {
+                Cliente cliente = prontuario.getCliente();
+                if (cliente.getNome().toUpperCase().contains(busca.toUpperCase())
+                        && u != null && cliente.getMedico() != null && u.getMedico().equals(cliente.getMedico())) {
                     filtrado.add(prontuario);
                 }
             }

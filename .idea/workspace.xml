@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eeb26de-0630-4053-b2b7-de41b7e5502e" name="Default" comment="" />
+    <list default="true" id="0eeb26de-0630-4053-b2b7-de41b7e5502e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_deltaspike_core_deltaspike_core_api_1_5_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_deltaspike_core_deltaspike_core_impl_1_5_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_deltaspike_modules_deltaspike_jpa_module_api_1_5_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_deltaspike_modules_deltaspike_jpa_module_impl_1_5_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/config/BootStrap.class" afterPath="$PROJECT_DIR$/target/classes/smedim/config/BootStrap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/config/BootStrap.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/config/BootStrap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/rn/ClienteRN.class" afterPath="$PROJECT_DIR$/target/classes/smedim/rn/ClienteRN.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/rn/ClienteRN.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/rn/ClienteRN.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/bean/FaturamentoPorConvenioBean.class" afterPath="$PROJECT_DIR$/target/classes/smedim/bean/FaturamentoPorConvenioBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/bean/FaturamentoPorConvenioBean.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/bean/FaturamentoPorConvenioBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/bean/FaturamentoPorServicoBean.class" afterPath="$PROJECT_DIR$/target/classes/smedim/bean/FaturamentoPorServicoBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/bean/FaturamentoPorServicoBean.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/bean/FaturamentoPorServicoBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/config/JpaProducer.class" afterPath="$PROJECT_DIR$/target/classes/smedim/config/JpaProducer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/config/JpaProducer.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/config/JpaProducer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/config/LogFilter.class" afterPath="$PROJECT_DIR$/target/classes/smedim/config/LogFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/config/LogFilter.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/config/LogFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/bean/MedicoBean.class" afterPath="$PROJECT_DIR$/target/classes/smedim/bean/MedicoBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/bean/MedicoBean.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/bean/MedicoBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/rn/ProntuarioRN.class" afterPath="$PROJECT_DIR$/target/classes/smedim/rn/ProntuarioRN.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/rn/ProntuarioRN.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/rn/ProntuarioRN.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/smedim/util/Util.class" afterPath="$PROJECT_DIR$/target/classes/smedim/util/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/util/Util.class" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/WEB-INF/classes/smedim/util/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/config/BootStrap.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/config/BootStrap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/rn/ClienteRN.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/rn/ClienteRN.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorServicoBean.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorServicoBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/config/JpaProducer.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/config/JpaProducer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/config/LogFilter.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/config/LogFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/bean/MedicoBean.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/bean/MedicoBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/rn/ProntuarioRN.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/rn/ProntuarioRN.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/smedim/util/Util.java" afterPath="$PROJECT_DIR$/src/main/java/smedim/util/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/META-INF/context.xml" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/META-INF/context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorServico.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorServico.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/privado/faturamento/listagemPorServico.xhtml" afterPath="$PROJECT_DIR$/target/web-smedim-1.0-SNAPSHOT/privado/faturamento/listagemPorServico.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-smedim.iml" afterPath="$PROJECT_DIR$/web-smedim.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/web_smedim_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/web_smedim_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="web-smedim.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,23 +91,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/ServicoConvenioRN.java" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/ServicoRN.java" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/SubProntuarioRN.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/dao/ProntuarioDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/ProntuarioRN.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/dao/MedicoDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/rn/MedicoRN.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/ClienteBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorServicoBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/AgendaBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/ServicoConvenioBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/ExpedienteBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/ProntuarioBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/ProntuarioConversor.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/rn/UsuarioRN.java" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/MedicoConversor.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/BooleanConversor.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/ClienteConversor.java" />
@@ -72,7 +108,6 @@
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/DataTempoConversor.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/ServicoConvenioConversor.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/ServicoConversor.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorServico.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/privado/medico/prontuario/listagem.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/privado/medico/sub_prontuario/formulario.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/privado/medico/sub_prontuario/visualizacao.xhtml" />
@@ -85,20 +120,28 @@
         <option value="$PROJECT_DIR$/src/main/webapp/privado/cadastro/usuario/formulario.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/privado/agenda/formulario.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorConvenio.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/bean/MedicoBean.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/privado/agenda/listagem.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/UsuarioBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/relatorio/GerarRelatorio.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/util/DAOUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/config/EntityManagerFactoryProducer.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/config/EntityManagerProducer.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/config/BootStrap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/smedim/config/JpaProducer.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/privado/expediente/listagem.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/bean/conversor/ConvenioConversor.java" />
         <option value="$PROJECT_DIR$/src/main/java/smedim/config/LogFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/config/JpaProducer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/config/BootStrap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/entidade/Medico.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/relatorio/GerarRelatorio.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorServico.xhtml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorServicoBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/ProntuarioRN.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/rn/ClienteRN.java" />
+        <option value="$PROJECT_DIR$/src/main/java/smedim/bean/MedicoBean.java" />
       </list>
     </option>
   </component>
@@ -180,6 +223,22 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-smedim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-smedim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -195,130 +254,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim-1.0-SNAPSHOT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-smedim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="privado" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -398,9 +333,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -414,7 +346,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="dynamic.classpath" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="Aut&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/rn/AutenticacaoLogin.java&#10;PorC&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java&#10;UsuarioBean&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/bean/UsuarioBean.java&#10;Usuario&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/dao/UsuarioDAO.java&#10;ServicoDA&#9;PSI&#9;JAVA://smedim.dao.ServicoDAO&#10;Medico&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/entidade/Medico.java&#10;persiste&#9;ACTION&#9;ActivatePersistenceToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="MedicoDA&#9;PSI&#9;JAVA://smedim.dao.MedicoDAO&#10;conte&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/webapp/META-INF/context.xml&#10;Fat&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java&#10;listagem&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/webapp/privado/faturamento/listagemPorConvenio.xhtml&#10;listagemPorServico&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/webapp/privado/faturamento/listagemPorServico.xhtml&#10;Aut&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/rn/AutenticacaoLogin.java&#10;PorC&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java&#10;UsuarioBean&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/bean/UsuarioBean.java&#10;Usuario&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/dao/UsuarioDAO.java&#10;ServicoDA&#9;PSI&#9;JAVA://smedim.dao.ServicoDAO&#10;Medico&#9;FILE&#9;file://C:/Users/Simeia Lima/Documents/NetBeansProjects/web-smedim/src/main/java/smedim/entidade/Medico.java&#10;persiste&#9;ACTION&#9;ActivatePersistenceToolWindow" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="false" />
@@ -799,12 +731,14 @@
       <updated>1455045711946</updated>
       <workItem from="1455045715737" duration="40202000" />
       <workItem from="1455105513886" duration="12215000" />
-      <workItem from="1455181533561" duration="1464000" />
+      <workItem from="1455181533561" duration="2507000" />
+      <workItem from="1455374508115" duration="12003000" />
+      <workItem from="1455485950740" duration="2483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53881000" />
+    <option name="totallyTimeSpent" value="69410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -812,7 +746,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
@@ -820,7 +753,6 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1945629" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5112903" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -833,12 +765,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -864,105 +798,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/rn/UsuarioRN.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="24" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorServico.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="97" column="59" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemDiario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/medico/prontuario/listagem.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="29" column="61" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/medico/prontuario/formulario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2727273">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/medico/sub_prontuario/formulario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/medico/sub_prontuario/visualizacao.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/expediente/formulario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/cliente/listagem.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="41" column="51" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/cliente/formulario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="37" column="38" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/cadastro/convenio/formulario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/cadastro/convenio/listagem.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/cadastro/medico/formulario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2545455">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/cadastro/medico/listagem.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2545455">
@@ -1012,39 +847,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorConvenio.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.423077">
-          <caret line="165" column="50" selection-start-line="165" selection-start-column="50" selection-end-line="165" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/entidade/Medico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/bean/MedicoBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1076,21 +883,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/rn/relatorio/GerarRelatorio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/smedim/util/DAOUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#905#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1105,25 +901,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/META-INF/context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/smedim/bean/UsuarioBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#3114#0" expanded="false" />
-            <element signature="e#2839#2840#0" expanded="false" />
-            <element signature="e#2869#2870#0" expanded="false" />
-            <element signature="e#2916#2917#0" expanded="false" />
-            <element signature="e#2954#2955#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1134,29 +915,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/config/BootStrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/config/JpaProducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/expediente/listagem.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.115385">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,9 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6841216">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#977#978#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1246,15 +1005,215 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36824325">
           <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/config/BootStrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/smedim/config/LogFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6554054">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/bean/ProntuarioBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/META-INF/context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/rn/relatorio/GerarRelatorio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorServico.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.26923">
+          <caret line="85" column="39" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/privado/faturamento/listagemPorConvenio.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.692308">
+          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/util/BeanUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/entidade/Medico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorServicoBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/dao/MedicoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/bean/MedicoBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="30" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/spi/PersistenceProviderResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1367816">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/spi/PersistenceProviderResolverHolder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2735632">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/Persistence.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7390804">
+          <caret line="102" column="89" selection-start-line="102" selection-start-column="89" selection-end-line="102" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/config/JpaProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3411371">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/bean/FaturamentoPorConvenioBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/rn/ProntuarioRN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62095875">
+          <caret line="56" column="112" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/rn/ClienteRN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.696767">
+          <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/rn/MedicoRN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36008918">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/smedim/entidade/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31772575">
+          <caret line="112" column="14" selection-start-line="112" selection-start-column="14" selection-end-line="112" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#3800#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2031#2032#0" expanded="false" />
+            <element signature="e#2059#2060#0" expanded="false" />
+            <element signature="e#2322#2323#0" expanded="false" />
+            <element signature="e#2347#2348#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2412#2413#0" expanded="false" />
+            <element signature="e#2443#2444#0" expanded="false" />
+            <element signature="e#2470#2471#0" expanded="false" />
+            <element signature="e#2510#2511#0" expanded="false" />
+            <element signature="e#2542#2543#0" expanded="false" />
+            <element signature="e#2574#2575#0" expanded="false" />
+            <element signature="e#2602#2603#0" expanded="false" />
+            <element signature="e#2644#2645#0" expanded="false" />
+            <element signature="e#2678#2679#0" expanded="false" />
+            <element signature="e#2710#2711#0" expanded="false" />
+            <element signature="e#2738#2739#0" expanded="false" />
+            <element signature="e#2780#2781#0" expanded="false" />
+            <element signature="e#2814#2815#0" expanded="false" />
+            <element signature="e#2850#2851#0" expanded="false" />
+            <element signature="e#2879#2880#0" expanded="false" />
+            <element signature="e#2926#2927#0" expanded="false" />
+            <element signature="e#2962#2963#0" expanded="false" />
+            <element signature="e#3068#3069#0" expanded="false" />
+            <element signature="e#3104#3105#0" expanded="false" />
+            <element signature="e#3726#3727#0" expanded="false" />
+            <element signature="e#3791#3792#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

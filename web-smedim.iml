@@ -50,6 +50,10 @@
     <orderEntry type="library" name="Maven: org.jboss.weld.probe:weld-probe-core:2.3.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.weld.servlet:weld-servlet:2.3.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss:jandex:1.2.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.deltaspike.core:deltaspike-core-api:1.5.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.deltaspike.core:deltaspike-core-impl:1.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-api:1.5.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-impl:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jasperreports:jasperreports:5.5.1" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.0" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:2.1" level="project" />

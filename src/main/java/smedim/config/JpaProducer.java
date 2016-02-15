@@ -16,11 +16,19 @@ import java.util.logging.Logger;
 
 public class JpaProducer {
 
+    private static EntityManagerFactory entityManagerFactory;
+
+    public static void init() {
+        if (entityManagerFactory == null)
+            entityManagerFactory = Persistence.createEntityManagerFactory("SMEDIMPU");
+    }
+
     @Produces
     @Default
     @ApplicationScoped
     public EntityManagerFactory createEntityManagerFactory() {
-        return Persistence.createEntityManagerFactory("SMEDIMPU");
+        init();
+        return entityManagerFactory;
     }
 
     @Produces

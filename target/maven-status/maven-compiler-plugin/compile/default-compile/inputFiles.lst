@@ -3,6 +3,7 @@ C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\FaturamentoPorConvenioBean.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\util\DAOUtil.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\ConvenioRN.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\config\LogFilter.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\entidade\ServicoConvenio.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\SubProntuarioDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\MedicoRN.java
@@ -44,10 +45,10 @@ C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\conversor\ClienteConversor.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\FaturamentoRN.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\FaturamentoDAO.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\config\JpaProducer.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\entidade\SubProntuario.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\AutenticacaoLogin.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\ServicoBean.java
-C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\config\EntityManagerProducer.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\ServicoDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\UsuarioDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\conversor\ServicoConversor.java

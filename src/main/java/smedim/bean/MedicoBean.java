@@ -92,7 +92,6 @@ public class MedicoBean implements Serializable {
 
     public void saveListener(AjaxBehaviorEvent event) {
         if (medico != null && medico.getId() != null) {
-            MedicoRN rn = new MedicoRN();
             rn.salvar(medico);
             LOG.info("Save medico");
         } else {

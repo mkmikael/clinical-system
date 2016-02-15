@@ -83,6 +83,19 @@ public class ClienteRN implements Serializable {
     }
 
     public List<Cliente> obterTodos() {
-        return dao.obterTodos();
+        Object o = BeanUtil.lerDaSessao("usuarioLogado");
+        Usuario u = null;
+        if (o != null && o instanceof Usuario)
+            u = (Usuario) BeanUtil.lerDaSessao("usuarioLogado");
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        if (u.getPerfil() == 'S' || u.getPerfil() == 'A') {
+            clientes.addAll(dao.obterTodos());
+        } else {
+            for (Cliente cliente : dao.obterTodos()) {
+                if ( u != null && cliente.getMedico() != null && u.getMedico().equals( cliente.getMedico() ) )
+                    clientes.add(cliente);
+            }
+        }
+        return clientes;
     }
 }

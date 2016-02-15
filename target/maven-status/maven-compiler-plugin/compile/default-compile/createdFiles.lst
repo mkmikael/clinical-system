@@ -4,6 +4,7 @@ smedim\entidade\Prontuario.class
 smedim\entidade\SubProntuario.class
 smedim\bean\conversor\ProntuarioConversor.class
 smedim\bean\FaturamentoPorConvenioBean.class
+smedim\config\LogFilter.class
 smedim\bean\conversor\DataTempoConversor.class
 smedim\rn\AgendaRN.class
 smedim\bean\conversor\ServicoConvenioConversor.class
@@ -36,12 +37,12 @@ smedim\rn\ServicoConvenioRN.class
 smedim\dao\ClienteDAO.class
 smedim\rn\relatorio\GerarRelatorio.class
 smedim\bean\conversor\DataConversor.class
+smedim\config\JpaProducer.class
 smedim\dao\SubProntuarioDAO.class
 smedim\bean\ServicoBean.class
 smedim\dao\AgendaDAO.class
 smedim\rn\MedicoRN.class
 smedim\entidade\Usuario.class
-smedim\config\EntityManagerProducer.class
 smedim\bean\conversor\ConvenioConversor.class
 smedim\dao\UsuarioDAO.class
 smedim\util\DAOUtil.class

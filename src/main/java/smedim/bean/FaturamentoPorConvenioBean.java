@@ -5,20 +5,19 @@
  */
 package smedim.bean;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import smedim.entidade.Convenio;
 import smedim.entidade.Faturamento;
 import smedim.entidade.Medico;
 import smedim.rn.ConvenioRN;
 import smedim.rn.FaturamentoRN;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  *
@@ -37,8 +36,8 @@ public class FaturamentoPorConvenioBean implements Serializable {
     private Convenio convenio;
 
     private Medico medico;
-    private Integer ano = LocalDate.now().getYear();
-    private Integer mes = LocalDate.now().getMonthValue();
+    private Integer ano = GregorianCalendar.getInstance().get(GregorianCalendar.YEAR);
+    private Integer mes = GregorianCalendar.getInstance().get(GregorianCalendar.MONTH) + 1;
     private Double total;
     private Double totalGeral;
     private Long num;

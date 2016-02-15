@@ -3,12 +3,12 @@
     <Resource name="jdbc/development"
               url="jdbc:mysql://localhost:3306/smedim"
               username="root"
-              password=""
+              password="root"
               driverClassName="com.mysql.jdbc.Driver"
               type="javax.sql.DataSource"
               auth="Container"
               maxActive="50"
-              maxIdle="3"
+              maxIdle="10"
               maxWait="10000"/>
 
     <Resource name="BeanManager"
