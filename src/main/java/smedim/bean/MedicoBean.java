@@ -10,23 +10,15 @@ import java.util.List;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import javafx.beans.value.ChangeListener;
 import smedim.dao.ConvenioDAO;
-import smedim.dao.GenericDAO;
 import smedim.dao.ServicoDAO;
 import smedim.entidade.Convenio;
 import smedim.entidade.Medico;
 import smedim.entidade.Servico;
-import smedim.entidade.ServicoConvenio;
-import smedim.rn.ConvenioRN;
 import smedim.rn.MedicoRN;
 import smedim.util.BeanUtil;
 

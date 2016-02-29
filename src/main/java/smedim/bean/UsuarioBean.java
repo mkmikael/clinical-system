@@ -9,16 +9,17 @@ package smedim.bean;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.deltaspike.data.api.criteria.Criteria;
+import smedim.entidade.Cliente;
+import smedim.entidade.Cliente_;
 import smedim.entidade.Medico;
 import smedim.entidade.Usuario;
+import smedim.repository.ClienteRepository;
 import smedim.rn.MedicoRN;
 import smedim.rn.UsuarioRN;
 import smedim.util.BeanUtil;
@@ -42,6 +43,8 @@ public class UsuarioBean implements Serializable {
     private boolean medico;
     private boolean recepecao;
     private boolean adm;
+    @Inject
+    private ClienteRepository clienteRepository;
 
     public void salvar() {
         if (rn.salvar(usuario)) {
@@ -65,6 +68,9 @@ public class UsuarioBean implements Serializable {
     }
     
     public String autenticar() {
+        Criteria<Cliente, Cliente> criteria = clienteRepository.criteria();
+        criteria.eq(Cliente_.nome, "");
+        LOG.info(clienteRepository.findAll(0, 10).toString());
         usuario = rn.autenticar(usuario);
         if (usuario != null) {
             BeanUtil.colocarNaSessao("usuarioLogado", usuario);

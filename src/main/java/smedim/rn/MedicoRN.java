@@ -6,9 +6,7 @@
 package smedim.rn;
 
 import java.util.List;
-import smedim.dao.GenericDAO;
 import smedim.dao.MedicoDAO;
-import smedim.entidade.Medico;
 import smedim.entidade.Medico;
 
 import javax.enterprise.context.RequestScoped;

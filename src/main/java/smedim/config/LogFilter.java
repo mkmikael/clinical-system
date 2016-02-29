@@ -35,7 +35,7 @@ public class LogFilter implements PhaseListener {
             username = ((Usuario)user).getLogin();
         }
 
-        log.info(String.format("ip: %s, user: %s, view: %s, params: %s", ipAddress, username, view, params));
+        log.info(String.format("user: %s@%s, view: %s, params: %s", username, ipAddress, view, params));
     }
 
     @Override

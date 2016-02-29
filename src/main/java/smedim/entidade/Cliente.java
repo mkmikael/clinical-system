@@ -9,6 +9,7 @@ package smedim.entidade;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.enterprise.context.Dependent;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,10 +32,12 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author bpmlab
  */
+@Dependent
 @Entity
 @Table(name = "cliente")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = Cliente.BY_NOME_ILIKE, query = "SELECT c FROM Cliente c where lower(c.nome) like ?1 order by c.nome asc"),
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
     @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id"),
     @NamedQuery(name = "Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE c.nome = :nome"),
@@ -43,6 +46,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cliente.findByFone1", query = "SELECT c FROM Cliente c WHERE c.fone1 = :fone1"),
     @NamedQuery(name = "Cliente.findByFone2", query = "SELECT c FROM Cliente c WHERE c.fone2 = :fone2")})
 public class Cliente implements Serializable {
+    public static final String BY_NOME_ILIKE = "Cliente.findAllAutoComplete";
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

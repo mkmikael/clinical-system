@@ -8,7 +8,6 @@ import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.logging.Logger;
 
 /**
  * Created by Simeia Lima on 10/02/2016.
@@ -16,11 +15,12 @@ import java.util.logging.Logger;
 
 public class JpaProducer {
 
+    private static final String PU = "SMEDIMPU";
     private static EntityManagerFactory entityManagerFactory;
 
     public static void init() {
         if (entityManagerFactory == null)
-            entityManagerFactory = Persistence.createEntityManagerFactory("SMEDIMPU");
+            entityManagerFactory = Persistence.createEntityManagerFactory(PU);
     }
 
     @Produces
@@ -34,8 +34,8 @@ public class JpaProducer {
     @Produces
     @Default
     @RequestScoped
-    public EntityManager createEntityManager(EntityManagerFactory managerFactory) {
-        return managerFactory.createEntityManager();
+    public EntityManager createEntityManager(EntityManagerFactory entityManagerFactory) {
+        return entityManagerFactory.createEntityManager();
     }
 
     public void disposeEntityManager(@Disposes @Default EntityManager entityManager) {

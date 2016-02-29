@@ -19,9 +19,38 @@ import smedim.entidade.Usuario;
  */
 public class BeanUtil implements Serializable {
 
-    public static void mensagem(Severity severity, String summary) {
+
+    public static void mensagem(Severity severity, String summary, String content) {
         FacesMessage fm = new FacesMessage(
-                severity, summary, "");
+                severity, summary, content);
+        FacesContext.getCurrentInstance().addMessage(null, fm);
+    }
+
+    public static void mensagem(Severity severity, String summary) {
+        mensagem(severity, summary, "");
+    }
+
+    public static void mensagemFatal(String summary, String content) {
+        FacesMessage fm = new FacesMessage(
+                FacesMessage.SEVERITY_FATAL, summary, content);
+        FacesContext.getCurrentInstance().addMessage(null, fm);
+    }
+
+    public static void mensagemInfo(String summary, String content) {
+        FacesMessage fm = new FacesMessage(
+                FacesMessage.SEVERITY_INFO, summary, content);
+        FacesContext.getCurrentInstance().addMessage(null, fm);
+    }
+
+    public static void mensagemError(String summary, String content) {
+        FacesMessage fm = new FacesMessage(
+                FacesMessage.SEVERITY_ERROR, summary, content);
+        FacesContext.getCurrentInstance().addMessage(null, fm);
+    }
+
+    public static void mensagemWarn(String summary, String content) {
+        FacesMessage fm = new FacesMessage(
+                FacesMessage.SEVERITY_WARN, summary, content);
         FacesContext.getCurrentInstance().addMessage(null, fm);
     }
 
@@ -41,6 +70,14 @@ public class BeanUtil implements Serializable {
         FacesContext context = FacesContext.getCurrentInstance();
         Map<String, Object> mapa = context.getExternalContext().getSessionMap();
         mapa.remove(key);
+    }
+
+    public static Usuario getUsuarioLogado() {
+        Object o = BeanUtil.lerDaSessao("usuarioLogado");
+        Usuario u = null;
+        if (o != null && o instanceof Usuario)
+            u = (Usuario) BeanUtil.lerDaSessao("usuarioLogado");
+        return u;
     }
 
     public static boolean isRecepcao() {

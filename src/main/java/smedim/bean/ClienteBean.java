@@ -5,18 +5,22 @@
  */
 package smedim.bean;
 
+import org.primefaces.model.LazyDataModel;
+import smedim.repository.ClienteRepository;
+import smedim.security.CustomAccessDecisionVoter;
+import smedim.security.Secured;
 import smedim.util.BeanUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import smedim.entidade.Cliente;
 import smedim.entidade.Medico;
-import smedim.rn.ClienteRN;
+import smedim.rn.ClienteService;
 import smedim.rn.MedicoRN;
 
 /**
@@ -25,18 +29,28 @@ import smedim.rn.MedicoRN;
  */
 @Named
 @RequestScoped
+@Secured({"A", "S", "M"})
 public class ClienteBean implements Serializable {
 
     @Inject
-    private ClienteRN rn;
+    private ClienteRepository clienteRepository;
+    @Inject
+    private ClienteService clienteService;
     @Inject
     private MedicoRN rnMedico;
-    private Cliente cliente = new Cliente();
+    @Inject
+    private Cliente cliente;
     private List<Cliente> clientes;
     private List<Medico> medicos;
+    private LazyDataModel<Cliente> clientesModel;
+
+    @PostConstruct
+    public void init() {
+        clientesModel = new ClienteLazyTable(clienteService);
+    }
 
     public void salvar() {
-        if (rn.salvar(cliente)) {
+        if (clienteService.salvar(cliente)) {
             BeanUtil.mensagem(FacesMessage.SEVERITY_INFO, "Sucesso! O cliente foi salvo.");
         } else {
             BeanUtil.mensagem(FacesMessage.SEVERITY_FATAL, "Erro! Não foi possivel salvar o cliente.");
@@ -44,19 +58,23 @@ public class ClienteBean implements Serializable {
     }
 
     public void deletar() {
-        if (rn.deletar(cliente)) {
+        try {
+            clienteService.deletar(cliente);
+            clientes = clienteService.list();
             BeanUtil.mensagem(FacesMessage.SEVERITY_INFO, "Sucesso! O cliente foi removido.");
-        } else {
+        } catch (Exception e) {
             BeanUtil.mensagem(FacesMessage.SEVERITY_FATAL, "Erro! O não foi possivel remover o cliente.");
         }
     }
 
     public List<Cliente> autoComplete(String busca) {
-        return rn.autoComplete(busca);
+        return clienteService.autoComplete(busca);
     }
 
     public List<Cliente> getClientes() {
-        clientes = rn.obterTodos();
+        if (clientes == null) {
+            clientes = clienteService.list();
+        }
         return clientes;
     }
 
@@ -73,4 +91,11 @@ public class ClienteBean implements Serializable {
         this.cliente = cliente;
     }
 
+    public LazyDataModel<Cliente> getClientesModel() {
+        return clientesModel;
+    }
+
+    public void setClientesModel(LazyDataModel<Cliente> clientesModel) {
+        this.clientesModel = clientesModel;
+    }
 }

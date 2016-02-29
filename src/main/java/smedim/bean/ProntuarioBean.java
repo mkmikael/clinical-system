@@ -6,6 +6,7 @@
 package smedim.bean;
 
 import java.io.File;
+
 import smedim.util.BeanUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,17 +14,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import smedim.entidade.Prontuario;
 import smedim.entidade.SubProntuario;
-import smedim.rn.ProntuarioRN;
+import smedim.rn.ProntuarioService;
 import smedim.rn.SubProntuarioRN;
 import smedim.rn.relatorio.GerarRelatorio;
 
@@ -36,7 +34,7 @@ import smedim.rn.relatorio.GerarRelatorio;
 public class ProntuarioBean implements Serializable {
 
     @Inject
-    private ProntuarioRN rn;
+    private ProntuarioService rn;
     @Inject
     private SubProntuarioRN rnS;
 

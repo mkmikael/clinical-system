@@ -10,12 +10,11 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import smedim.entidade.Prontuario;
-import smedim.rn.ProntuarioRN;
+import smedim.rn.ProntuarioService;
 
 /**
  *
@@ -26,7 +25,7 @@ import smedim.rn.ProntuarioRN;
 public class ProntuarioConversor implements Converter {
 
     @Inject
-    private ProntuarioRN rn;
+    private ProntuarioService rn;
     
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {

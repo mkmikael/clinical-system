@@ -6,13 +6,12 @@
 
 package smedim.dao;
 
+import org.apache.deltaspike.jpa.api.transaction.Transactional;
+
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
@@ -30,56 +29,59 @@ public class GenericDAO<T> implements Serializable {
 
     public GenericDAO() {
     }
-    
+
+    @Transactional
     public boolean criar(T o) {
         EntityTransaction t = null;
-        try {
-            t = em.getTransaction();
-            t.begin();
+//        try {
+//            t = em.getTransaction();
+//            t.begin();
             em.persist(o);
-            t.commit();
+//            t.commit();
             return true;
-        } catch (Exception e) {
-            if (t != null && t.isActive()) {
-                t.rollback();
-            }
-            LOG.log(Level.SEVERE, "Erro camada DAO", e);
-            return false;
-        }
+//        } catch (Exception e) {
+//            if (t != null && t.isActive()) {
+//                t.rollback();
+//            }
+//            LOG.log(Level.SEVERE, "Erro camada DAO", e);
+//            return false;
+//        }
     }
-    
+
+    @Transactional
     public boolean alterar(T o) {
-        EntityTransaction t = null;
-        try {
-            t = em.getTransaction();
-            t.begin();
+//        EntityTransaction t = null;
+//        try {
+//            t = em.getTransaction();
+//            t.begin();
             em.merge(o);
-            t.commit();
+//            t.commit();
             return true;
-        } catch (Exception e) {
-            if (t != null && t.isActive()) {
-                t.rollback();
-            }
-            LOG.log(Level.SEVERE, "Erro camada DAO", e);
-            return false;
-        }
+//        } catch (Exception e) {
+//            if (t != null && t.isActive()) {
+//                t.rollback();
+//            }
+//            LOG.log(Level.SEVERE, "Erro camada DAO", e);
+//            return false;
+//        }
     }
-    
+
+    @Transactional
     public boolean remover(T o) {
-        EntityTransaction t = null;
-        try {
-            t = em.getTransaction();
-            t.begin();
+//        EntityTransaction t = null;
+//        try {
+//            t = em.getTransaction();
+//            t.begin();
             em.remove(em.merge(o));
-            t.commit();
+//            t.commit();
             return true;
-        } catch (Exception e) {
-            if (t != null && t.isActive()) {
-                t.rollback();
-            }
-            System.out.println("EXCEPTION: " + e);
-            return false;
-        }
+//        } catch (Exception e) {
+//            if (t != null && t.isActive()) {
+//                t.rollback();
+//            }
+//            System.out.println("EXCEPTION: " + e);
+//            return false;
+//        }
     }
     
     public T obterPorId(Class<T> clazz, Object id) {

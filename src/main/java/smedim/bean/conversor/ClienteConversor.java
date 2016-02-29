@@ -10,12 +10,11 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import smedim.entidade.Cliente;
-import smedim.rn.ClienteRN;
+import smedim.rn.ClienteService;
 
 /**
  *
@@ -26,14 +25,14 @@ import smedim.rn.ClienteRN;
 public class ClienteConversor implements Converter {
 
     @Inject
-    private ClienteRN rn;
+    private ClienteService rn;
     
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
         if (string.isEmpty()) {
             return null;
         } else {
-            return rn.obterPorId(new Integer(string));
+            return rn.findById(new Integer(string));
         }
     }
 

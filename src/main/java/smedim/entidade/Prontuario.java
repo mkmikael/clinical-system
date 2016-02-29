@@ -32,11 +32,13 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "prontuario")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = Prontuario.BY_CLIENTE_NOME_ILIKE, query = "SELECT p FROM Prontuario p where lower(p.cliente.nome) like ?1 and p.cliente.medico = ?2 order by p.cliente.nome"),
     @NamedQuery(name = "Prontuario.findAll", query = "SELECT p FROM Prontuario p"),
     @NamedQuery(name = "Prontuario.findById", query = "SELECT p FROM Prontuario p WHERE p.id = :id"),
     @NamedQuery(name = "Prontuario.findByAntecedentesPessoais", query = "SELECT p FROM Prontuario p WHERE p.antecedentesPessoais = :antecedentesPessoais"),
     @NamedQuery(name = "Prontuario.findByAntecedentesFamiliares", query = "SELECT p FROM Prontuario p WHERE p.antecedentesFamiliares = :antecedentesFamiliares")})
 public class Prontuario implements Serializable {
+    public static final String BY_CLIENTE_NOME_ILIKE = "Prontuario.findByNomeILikeAndMedicoOrderByNome";
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
