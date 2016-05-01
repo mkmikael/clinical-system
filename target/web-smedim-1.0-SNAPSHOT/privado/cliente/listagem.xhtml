@@ -22,13 +22,10 @@
                     </p>
                     
                     <p:dataTable id="tabelaCliente"
-                                 value="#{clienteBean.clientes}"
-                                 var="cliente"
-                                 emptyMessage="sem registros"
-                                 paginator="true"
-                                 rows="10">
-                        <p:column headerText="Nome" 
-                                  filterBy="#{cliente.nome}">
+                                 value="#{clienteBean.clientesModel}" var="cliente"
+                                 paginator="true" rows="10" lazy="true"
+                                 emptyMessage="sem registros">
+                        <p:column headerText="Nome" filterBy="#{cliente.nome}">
                             <h:outputText id="outNome" value="#{cliente.nome}"/>
                         </p:column>
                         

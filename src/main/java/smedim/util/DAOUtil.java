@@ -23,7 +23,7 @@ public class DAOUtil implements Serializable {
         try {
             String url = "jdbc:mysql://localhost:3306/smedim";
             Class.forName("com.mysql.jdbc.Driver");
-            return DriverManager.getConnection(url, "root", "");
+            return DriverManager.getConnection(url, "root", "root");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DAOUtil.class.getName()).log(Level.SEVERE, null, ex);
             return null;

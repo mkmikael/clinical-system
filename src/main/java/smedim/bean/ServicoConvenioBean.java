@@ -5,10 +5,11 @@
  */
 package smedim.bean;
 
+import org.apache.deltaspike.security.api.authorization.Secured;
 import smedim.util.BeanUtil;
 import java.io.Serializable;
 import java.util.List;
-import javax.enterprise.context.ConversationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,13 +18,12 @@ import smedim.entidade.Convenio;
 import smedim.entidade.Servico;
 import smedim.entidade.ServicoConvenio;
 import smedim.rn.ServicoConvenioRN;
-
 /**
  *
  * @author Mikael Lima
  */
 @Named
-@ConversationScoped
+@SessionScoped
 public class ServicoConvenioBean implements Serializable {
 
     @Inject

@@ -27,9 +27,6 @@ public class CustomAccessDecisionVoter implements AccessDecisionVoter {
     public Set<SecurityViolation> checkPermission(AccessDecisionVoterContext voterContext) {
         Secured annotation = voterContext.getMetaDataFor(Secured.class.getName(), Secured.class);
         String[] roles = annotation.value();
-        log.info(Arrays.toString(roles));
-        InvocationContext source = voterContext.<InvocationContext>getSource();
-        log.info("Method Accessed: " + source.getMethod().getName());
         Set<SecurityViolation> violations = new HashSet<>();
         Usuario usuario = BeanUtil.getUsuarioLogado();
         if (usuario != null) {

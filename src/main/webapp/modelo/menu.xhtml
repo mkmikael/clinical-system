@@ -71,11 +71,13 @@
                 <p:menuitem id="miDiario"
                             value="Faturamento Diário"
                             outcome="faturamentoDiario"/>
+
             </p:submenu>
 
             <p:menuitem id="miSair"
                         icon="ui-icon-power"
                         value="Sair"
+                        ajax="false"
                         action="#{usuarioBean.deslogar()}"/>
         </p:menubar>
     </h:form>

@@ -31,6 +31,10 @@
                                         label="Senha"
                                         required="true"/>
                         </h:panelGrid>
+
+                        <p>
+                            <p:selectBooleanCheckbox value="#{usuarioBean.remember}" /> Lembrar sessão
+                        </p>
                         
                         <p:commandButton id="cbEntrar"
                                          ajax="false"

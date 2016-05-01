@@ -60,7 +60,6 @@ smedim\entidade\Cliente.class
 smedim\entidade\Agenda_.class
 smedim\rn\ConvenioRN.class
 smedim\rn\ServicoConvenioRN.class
-smedim\rn\MedicoRN.class
 smedim\entidade\Faturamento.class
 smedim\rn\SubProntuarioRN.class
 smedim\entidade\SubProntuario_.class

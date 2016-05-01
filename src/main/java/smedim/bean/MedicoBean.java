@@ -8,6 +8,7 @@ package smedim.bean;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.event.AjaxBehaviorEvent;
@@ -19,7 +20,9 @@ import smedim.dao.ServicoDAO;
 import smedim.entidade.Convenio;
 import smedim.entidade.Medico;
 import smedim.entidade.Servico;
-import smedim.rn.MedicoRN;
+import smedim.entidade.Usuario;
+import smedim.repository.FaturamentoRepository;
+import smedim.rn.MedicoService;
 import smedim.util.BeanUtil;
 
 /**
@@ -33,34 +36,46 @@ public class MedicoBean implements Serializable {
     private static final Logger LOG = Logger.getLogger(MedicoBean.class.getClass().getName());
 
     @Inject
-    private MedicoRN rn;
+    private MedicoService medicoService;
     @Inject
     private ConvenioDAO convenioDAO;
     @Inject
     private ServicoDAO servicoDAO;
+    @Inject
+    private FaturamentoRepository faturamentoRepository;
+    @Inject
+    private Logger log;
+
     private List<Medico> medicos;
     private List<Convenio> convenios;
     private List<Servico> servicos;
-    private Medico medico = new Medico();
-    
+    @Inject
+    private Medico medico;
+    @Inject
+    private Usuario usuario;
+
+    @PostConstruct
+    public void init() {
+    }
+
     public void salvar() {
-        if (rn.salvar(medico)) {
+        if (medicoService.salvar(medico, usuario)) {
             BeanUtil.mensagem(FacesMessage.SEVERITY_INFO, "Sucesso! O médico foi salvo.");
         } else {
             BeanUtil.mensagem(FacesMessage.SEVERITY_FATAL, "Erro! Não foi possivel salvar o médico.");
         }
     }
-    
+
     public void deletar() {
-        if (rn.deletar(medico)) {
+        if (medicoService.deletar(medico)) {
             BeanUtil.mensagem(FacesMessage.SEVERITY_INFO, "Sucesso! O médico foi removido.");
         } else {
             BeanUtil.mensagem(FacesMessage.SEVERITY_FATAL, "Erro! O não foi possivel remover o médico.");
         }
     }
-    
+
     public List<Medico> getMedicos() {
-        medicos = rn.obterTodos();
+        medicos = medicoService.obterTodos();
         return medicos;
     }
 
@@ -82,12 +97,21 @@ public class MedicoBean implements Serializable {
         return servicos;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public void saveListener(AjaxBehaviorEvent event) {
         if (medico != null && medico.getId() != null) {
-            rn.salvar(medico);
+            medicoService.salvar(medico);
             LOG.info("Save medico");
         } else {
             LOG.severe("O attr medico nao foi setado");
         }
     }
+
 }

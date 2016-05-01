@@ -32,11 +32,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Faturamento.findAll", query = "SELECT f FROM Faturamento f"),
+    @NamedQuery(name = Faturamento.BY_MEDICO, query = "SELECT f FROM Faturamento f where f.medico = ?1"),
+    @NamedQuery(name = Faturamento.COUNT_BY_MEDICO, query = "SELECT count(f) FROM Faturamento f where f.medico = ?1"),
     @NamedQuery(name = "Faturamento.findById", query = "SELECT f FROM Faturamento f WHERE f.id = :id"),
     @NamedQuery(name = "Faturamento.findByDataDoFaturamento", query = "SELECT f FROM Faturamento f WHERE f.dataDoFaturamento = :dataDoFaturamento"),
     @NamedQuery(name = "Faturamento.findByNumDeAtendimento", query = "SELECT f FROM Faturamento f WHERE f.numDeAtendimento = :numDeAtendimento"),
     @NamedQuery(name = "Faturamento.findByPreco", query = "SELECT f FROM Faturamento f WHERE f.preco = :preco")})
 public class Faturamento implements Serializable {
+
+    public static final String BY_MEDICO = "Faturamento.findAllByMedico";
+    public static final String COUNT_BY_MEDICO = "Faturamento.countByMedico";
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

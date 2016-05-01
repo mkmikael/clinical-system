@@ -20,6 +20,18 @@
                              value="#{medicoBean.medico.nome}"
                              label="Médico"
                              required="true"/>
+
+                <h:outputText value="Username: "/>
+                <p:inputText id="usuarioNome"
+                             value="#{medicoBean.usuario.login}"
+                             label="Username"
+                             required="true"/>
+
+                <h:outputText value="Senha: "/>
+                <p:inputText id="usuarioSenha"
+                             value="#{medicoBean.usuario.senha}"
+                             label="Senha"
+                             required="true"/>
             </p:panelGrid>
 
             <p>

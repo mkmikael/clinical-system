@@ -1,10 +1,13 @@
 package smedim.bean;
 
+import org.apache.deltaspike.data.api.criteria.Criteria;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 import smedim.entidade.Cliente;
+import smedim.entidade.Cliente_;
 import smedim.rn.ClienteService;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Map;
 
@@ -30,14 +33,27 @@ public class ClienteLazyTable extends LazyDataModel<Cliente> {
         return clienteService.findById(key);
     }
 
+//    @Override
+//    public List<Cliente> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters) {
+//        List<Cliente> list = clienteService.list(filters, first, pageSize);
+//        if (getRowCount() <= 0)
+//            setRowCount(clienteService.count(filters).intValue());
+//        setPageSize(pageSize);
+//        return list;
+//    }
+
     @Override
     public List<Cliente> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters) {
-        List<Cliente> list = clienteService.list(first, pageSize);
-        if(getRowCount() <= 0){
-            setRowCount(clienteService.count().intValue());
+        if (getRowCount() <= 0) {
+            Criteria<Cliente, Cliente> criteria = clienteService.createCriteria(filters);
+            Criteria<Cliente, Long> select = criteria.select(Long.class, clienteService.getClienteRepository().count(Cliente_.id));
+            setRowCount(select.getSingleResult().intValue());
         }
         setPageSize(pageSize);
-        return list;
+        return clienteService.createCriteria(filters).createQuery()
+                .setFirstResult(first)
+                .setMaxResults(pageSize)
+                .getResultList();
     }
 
 }

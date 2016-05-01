@@ -31,10 +31,13 @@
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-partial-bean-module-api:1.5.3" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-data-module-impl:1.5.3" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-partial-bean-module-impl:1.5.3" />
-          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-api:1.5.3" />
-          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm5:1.5.3" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-security-module-api:1.5.3" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-security-module-impl:1.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jsf-module-api:1.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jsf-module-impl:1.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-api:1.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm5:1.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-bean-validation-module-impl:1.5.3" />
           <element id="library" level="project" name="Maven: net.sf.jasperreports:jasperreports:5.5.1" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.0" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:2.1" />

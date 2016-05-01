@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pe="http://primefaces.org/ui/extensions">
 
     <ui:composition template="/modelo/templateComMenu.xhtml">
         <ui:define name="conteudo">
@@ -34,11 +35,44 @@
                         </h:panelGrid>
                     </p>
 
+                    <h3>Exportar</h3>
+                    <h:panelGrid columns="2">
+                        <h:commandLink action="${expedienteBean.relatorioParticular()}">
+                            <p:graphicImage library="imagens" name="excel.png"/>
+                        </h:commandLink>
+                        <h:commandLink action="${expedienteBean.relatorioParticular()}">Particular</h:commandLink>
+
+                        <h:commandLink action="${expedienteBean.relatorioConvenios()}">
+                            <p:graphicImage library="imagens" name="excel.png"/>
+                        </h:commandLink>
+                        <h:commandLink action="${expedienteBean.relatorioConvenios()}">Convênios</h:commandLink>
+                    </h:panelGrid>
+                    <!--<h:panelGrid columns="2">-->
+                        <!--<h:commandLink style="margin: 2px 4px">-->
+                            <!--<p:graphicImage library="imagens" name="excel.png"/>-->
+                            <!--<pe:exporter type="xlsx" encoding="iso-8859-1" target="tabelaExpediente" fileName="faturamentoDiario" />-->
+                        <!--</h:commandLink>-->
+
+                        <!--<h:commandLink style="margin: 2px 4px">-->
+                            <!--<p:graphicImage library="imagens" name="pdf.png"/>-->
+                            <!--<pe:exporter type="pdf" encoding="iso-8859-1" target="tabelaExpediente" fileName="faturamentoDiario" />-->
+                        <!--</h:commandLink>-->
+                    <!--</h:panelGrid>-->
+
                     <p:dataTable id="tabelaExpediente"
+                                 widgetVar="tblEx"
                                  value="#{expedienteBean.faturamentos}"
                                  var="faturamento"
                                  emptyMessage="sem registros">
-                        <p:column headerText="Médico">
+                        <p:column headerText="Médico" filterBy="#{faturamento.medico.nome}" filterMatchMode="exact">
+                            <f:facet name="filter">
+                                <p:selectOneMenu required="false" onchange="PF('tblEx').filter()" >
+                                    <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true" />
+                                    <f:selectItems value="#{expedienteBean.medicos}"
+                                                   var="medico"
+                                                   itemValue="#{medico.nome}"/>
+                                </p:selectOneMenu>
+                            </f:facet>
                             <h:outputText value="#{faturamento.medico.nome}"/>
                         </p:column>
 
@@ -51,45 +85,37 @@
                         </p:column>
 
                         <p:column headerText="Preço" style="width: 10%">
-                            <div align="center">
-                                <h:outputText id="outPreco" value="#{faturamento.servicoConvenio.preco}">
-                                    <f:convertNumber type="currency"
-                                                     currencySymbol="R$"
-                                                     minFractionDigits="2"
-                                                     maxFractionDigits="2"/>
-                                </h:outputText>
-                            </div>
+                            <h:outputText id="outPreco" value="#{faturamento.servicoConvenio.preco}">
+                                <f:convertNumber type="currency"
+                                                 currencySymbol="R$"
+                                                 minFractionDigits="2"
+                                                 maxFractionDigits="2"/>
+                            </h:outputText>
                         </p:column>
 
                         <p:column headerText="Nº de Atendimento" style="width: 10%">
-                            <div align="center">
-                                <h:outputText id="outNumAtendimento"
-                                              value="#{faturamento.numDeAtendimento}"/>
-                            </div>
+                            <h:outputText id="outNumAtendimento"
+                                          value="#{faturamento.numDeAtendimento}"/>
 
                             <f:facet name="footer">
-                                <span>Total: </span>
                                 <h:outputText id="outTotalAtendimento"
-                                              value="#{expedienteBean.totalAtendimento}"/>
+                                              value="Total: #{expedienteBean.totalAtendimento}"/>
                             </f:facet>
                         </p:column>
 
                         <p:column headerText="Sub-Total" style="width: 12%">
-                            <div align="center">
-                                <h:outputText id="outSubTotal"
-                                              value="#{faturamento.numDeAtendimento
-                                                       * faturamento.servicoConvenio.preco}">
-                                    <f:convertNumber type="currency"
-                                                     currencySymbol="R$"
-                                                     minFractionDigits="2"
-                                                     maxFractionDigits="2"/>
-                                </h:outputText>
-                            </div>
+                            <h:outputText id="outSubTotal"
+                                          value="#{faturamento.numDeAtendimento
+                                                   * faturamento.servicoConvenio.preco}">
+                                <f:convertNumber type="currency"
+                                                 currencySymbol="R$"
+                                                 minFractionDigits="2"
+                                                 maxFractionDigits="2"/>
+                            </h:outputText>
 
                             <f:facet name="footer">
-                                <span>Total: </span>
                                 <h:outputText id="outTotal"
-                                              value="#{expedienteBean.total}">
+                                              value="Total: #{expedienteBean.total}">
                                     <f:convertNumber type="currency"
                                                      currencySymbol="R$"
                                                      minFractionDigits="2"
@@ -99,42 +125,36 @@
                         </p:column>
 
                         <p:column headerText="+" style="width: 5%">
-                            <div align="center">
-                                <p:commandButton id="cbAdd"
-                                                 value="+"
-                                                 update="tabelaExpediente"
-                                                 action="#{expedienteBean.addNumAtendimento()}">
-                                    <f:setPropertyActionListener
-                                        value="#{faturamento}"
-                                        target="#{expedienteBean.faturamento}"/>
-                                </p:commandButton>
-                            </div>
+                            <p:commandButton id="cbAdd"
+                                             icon="ui-icon-circle-plus"
+                                             update="tabelaExpediente"
+                                             action="#{expedienteBean.addNumAtendimento()}">
+                                <f:setPropertyActionListener
+                                    value="#{faturamento}"
+                                    target="#{expedienteBean.faturamento}"/>
+                            </p:commandButton>
                         </p:column>
 
                         <p:column headerText="-" style="width: 5%">
-                            <div align="center">
-                                <p:commandButton id="cbSub"
-                                                 value="-"
-                                                 update="tabelaExpediente"
-                                                 action="#{expedienteBean.subNumAtendimento()}">
-                                    <f:setPropertyActionListener
-                                        value="#{faturamento}"
-                                        target="#{expedienteBean.faturamento}"/>
-                                </p:commandButton>
-                            </div>
+                            <p:commandButton id="cbSub"
+                                             icon="ui-icon-circle-minus"
+                                             update="tabelaExpediente"
+                                             action="#{expedienteBean.subNumAtendimento()}">
+                                <f:setPropertyActionListener
+                                    value="#{faturamento}"
+                                    target="#{expedienteBean.faturamento}"/>
+                            </p:commandButton>
                         </p:column>
 
                         <p:column headerText="Excluir" style="width: 7%">
-                            <div align="center">
-                                <p:commandButton id="cbExcluir"
-                                                 icon="ui-icon-trash"
-                                                 update="@form"
-                                                 action="#{expedienteBean.deletar()}">
-                                    <f:setPropertyActionListener
-                                        value="#{faturamento}"
-                                        target="#{expedienteBean.faturamento}"/>
-                                </p:commandButton>
-                            </div>
+                            <p:commandButton id="cbExcluir"
+                                             icon="ui-icon-trash"
+                                             update="@form"
+                                             action="#{expedienteBean.deletar()}">
+                                <f:setPropertyActionListener
+                                    value="#{faturamento}"
+                                    target="#{expedienteBean.faturamento}"/>
+                            </p:commandButton>
                         </p:column>
                     </p:dataTable>
                 </p:panel>

@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -76,38 +77,14 @@ public class ClienteService implements Serializable {
         return clienteRepository.findBy(id);
     }
 
-    public List<Cliente> obterTodos() {
-        Object o = BeanUtil.lerDaSessao("usuarioLogado");
-        Usuario u = null;
-        if (o != null && o instanceof Usuario)
-            u = (Usuario) BeanUtil.lerDaSessao("usuarioLogado");
-        ArrayList<Cliente> clientes = new ArrayList<>();
-        if (u.getPerfil() == 'S' || u.getPerfil() == 'A') {
-            clientes.addAll(dao.obterTodos());
-        } else {
-            for (Cliente cliente : dao.obterTodos()) {
-                if ( u != null && cliente.getMedico() != null && u.getMedico().equals( cliente.getMedico() ) )
-                    clientes.add(cliente);
-            }
-        }
-        return clientes;
+    public Long count() {
+        return count(null);
     }
 
-    public Long count() {
+    public Long count(Map<String, Object> filters) {
         Usuario usuario = BeanUtil.getUsuarioLogado();
-        Criteria<Cliente, Long> criteria = clienteRepository.criteria()
+        Criteria<Cliente, Long> criteria = createCriteria(filters)
                 .select(Long.class, clienteRepository.count(Cliente_.id));
-        if (usuario != null) {
-            if (usuario.getMedico() == null) {
-                BeanUtil.mensagemError("Código 01", "O usuário não possui um perfil de médico.");
-                return null;
-            }
-            if (usuario.getPerfil() == 'M') {
-                criteria.eq(Cliente_.medico, usuario.getMedico());
-            }
-        } else {
-            BeanUtil.mensagemFatal("Código 00", "Não foi possível obter o usuário logado.");
-        }
         return criteria.getSingleResult();
     }
 
@@ -116,19 +93,20 @@ public class ClienteService implements Serializable {
     }
 
     public List<Cliente> list(int start, int max) {
-        TypedQuery<Cliente> query = createList();
-        if (query == null)
-            return Collections.EMPTY_LIST;
-        else {
-            if (start >= 0)
-                query.setFirstResult(start);
-            if (max > 0)
-                query.setMaxResults(max);
-            return query.getResultList();
-        }
+        return list(null, start, max);
     }
 
-    private TypedQuery<Cliente> createList() {
+    public List<Cliente> list(Map<String, Object> filters, int start, int max) {
+        Criteria<Cliente, Cliente> criteria = createCriteria(filters);
+        TypedQuery<Cliente> query = criteria.createQuery();
+        if (start >= 0)
+            query.setFirstResult(start);
+        if (max > 0)
+            query.setMaxResults(max);
+        return query.getResultList();
+    }
+
+    public Criteria<Cliente, Cliente> createCriteria(Map<String, Object> filters) {
         Usuario usuario = BeanUtil.getUsuarioLogado();
         Criteria<Cliente, Cliente> criteria = clienteRepository.criteria();
         if (usuario != null) {
@@ -142,6 +120,16 @@ public class ClienteService implements Serializable {
         } else {
             BeanUtil.mensagemFatal("Código 00", "Não foi possível obter o usuário logado.");
         }
-        return criteria.createQuery();
+
+        if (filters != null) {
+            if (filters.containsKey("nome")) {
+                criteria.likeIgnoreCase(Cliente_.nome, "%" + filters.get("nome").toString() + "%");
+            }
+        }
+        return criteria;
+    }
+
+    public ClienteRepository getClienteRepository() {
+        return clienteRepository;
     }
 }

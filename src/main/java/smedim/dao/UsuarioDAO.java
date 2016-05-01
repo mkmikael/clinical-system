@@ -25,4 +25,13 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
                 .setParameter("senha", senha);
         return query.getSingleResult();
     }
+
+    public Usuario obterPorLogin(String login) {
+        String jpql = "SELECT u FROM Usuario u "
+                + "WHERE u.login = :login";
+        TypedQuery<Usuario> query = getEntityManager()
+                .createQuery(jpql, Usuario.class)
+                .setParameter("login", login);
+        return query.getSingleResult();
+    }
 }

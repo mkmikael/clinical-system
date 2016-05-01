@@ -7,21 +7,30 @@ package smedim.bean;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ConversationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.TemporalType;
 
+import org.apache.deltaspike.data.api.criteria.Criteria;
 import smedim.entidade.Faturamento;
+import smedim.entidade.Faturamento_;
 import smedim.entidade.Medico;
 import smedim.entidade.ServicoConvenio;
+import smedim.repository.FaturamentoAbstractRepository;
+import smedim.repository.FaturamentoRepository;
 import smedim.rn.ExpedienteRN;
-import smedim.rn.MedicoRN;
+import smedim.rn.FaturamentoService;
+import smedim.rn.MedicoService;
 import smedim.rn.ServicoConvenioRN;
+import smedim.rn.relatorio.ExcelExporter;
 import smedim.rn.relatorio.GerarRelatorio;
 import smedim.util.BeanUtil;
 import smedim.util.DAOUtil;
@@ -31,15 +40,17 @@ import smedim.util.DAOUtil;
  * @author Mikael Lima
  */
 @Named
-@ConversationScoped
+@SessionScoped
 public class ExpedienteBean implements Serializable {
 
     @Inject
     private ExpedienteRN rn;
     @Inject
-    private MedicoRN rnM;
+    private MedicoService rnM;
     @Inject
     private ServicoConvenioRN rnSC;
+    @Inject
+    private FaturamentoService faturamentoService;
 
     private Faturamento faturamento = new Faturamento();
     private List<Faturamento> faturamentos;
@@ -48,7 +59,8 @@ public class ExpedienteBean implements Serializable {
     private Double total;
     private Long totalAtendimento;
 
-    public ExpedienteBean() {
+    @PostConstruct
+    public void init() {
         faturamento.setDataDoFaturamento(new Date());
     }
 
@@ -114,6 +126,24 @@ public class ExpedienteBean implements Serializable {
         return totalAtendimento;
     }
 
+    public List<Faturamento> getFaturamentoByMedicoAndData(Medico medico) {
+        return null;
+    }
+
+    public Integer countFaturamento(List<Faturamento> faturamentos) {
+        int count = 0;
+        for (Faturamento f : faturamentos)
+            count += f.getNumDeAtendimento();
+        return count;
+    }
+
+    public Double sumFaturamentoByPreco(List<Faturamento> faturamentos) {
+        double sum = 0;
+        for (Faturamento f : faturamentos)
+            sum += f.getPreco();
+        return sum;
+    }
+
     public Faturamento getFaturamento() {
         return faturamento;
     }
@@ -125,6 +155,14 @@ public class ExpedienteBean implements Serializable {
     public List<Medico> getMedicos() {
         medicos = rnM.obterTodos();
         return medicos;
+    }
+
+    public void relatorioParticular() {
+        faturamentoService.relatorioByDataAndIsParticular(faturamento.getDataDoFaturamento(), true);
+    }
+
+    public void relatorioConvenios() {
+        faturamentoService.relatorioByDataAndIsParticular(faturamento.getDataDoFaturamento(), false);
     }
 
 }

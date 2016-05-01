@@ -7,6 +7,7 @@
 package smedim.entidade;
 
 import java.io.Serializable;
+import javax.enterprise.context.Dependent;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,6 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author bpmlab
  */
+@Dependent
 @Entity
 @Table(name = "usuario")
 @XmlRootElement

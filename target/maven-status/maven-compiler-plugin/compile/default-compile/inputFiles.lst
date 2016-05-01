@@ -7,11 +7,14 @@ C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\ConvenioRN.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\SubProntuarioDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\entidade\Agenda.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\repository\UsuarioRepository.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\conversor\ConvenioConversor.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\FaturamentoBean.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\UsuarioBean.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\ClienteDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\conversor\DataConversor.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\ProntuarioService.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\MedicoService.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\repository\ClienteRepository.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\MedicoDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\FaturamentoRN.java
@@ -19,6 +22,7 @@ C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\ClienteBean.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\GenericDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\UsuarioDAO.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\FaturamentoLazyTable.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\entidade\Medico.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\ConvenioDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\entidade\Servico.java
@@ -39,11 +43,12 @@ C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\conversor\ServicoConvenioConversor.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\UsuarioRN.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\FaturamentoPorConvenioBean.java
-C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\MedicoRN.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\ServicoDAO.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\MedicoBean.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\entidade\Cliente.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\repository\FaturamentoRepository.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\AgendaBean.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\repository\MedicoRepository.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\AgendaRN.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\SubProntuarioRN.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\dao\ProntuarioDAO.java
@@ -64,4 +69,5 @@ C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\rn\ServicoConvenioRN.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\ExpedienteBean.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\config\JpaProducer.java
+C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\ClienteLazyTable.java
 C:\Users\Simeia Lima\Documents\NetBeansProjects\web-smedim\src\main\java\smedim\bean\FaturamentoPorServicoBean.java

@@ -5,9 +5,14 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.net.ConnectException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Simeia Lima on 10/02/2016.
@@ -17,10 +22,16 @@ public class JpaProducer {
 
     private static final String PU = "SMEDIMPU";
     private static EntityManagerFactory entityManagerFactory;
+    private static Logger log = Logger.getLogger(JpaProducer.class.getName());
 
     public static void init() {
-        if (entityManagerFactory == null)
-            entityManagerFactory = Persistence.createEntityManagerFactory(PU);
+        if (entityManagerFactory == null) {
+            try {
+                entityManagerFactory = Persistence.createEntityManagerFactory(PU);
+            } catch (Exception ex) {
+                log.log(Level.SEVERE, "Verifique se o banco de dados está em execução.", ex);
+            }
+        }
     }
 
     @Produces

@@ -25,7 +25,7 @@
                                  value="#{clienteBean.clientesModel}" var="cliente"
                                  paginator="true" rows="10" lazy="true"
                                  emptyMessage="sem registros">
-                        <p:column headerText="Nome">
+                        <p:column headerText="Nome" filterBy="#{cliente.nome}">
                             <h:outputText id="outNome" value="#{cliente.nome}"/>
                         </p:column>
                         

@@ -8,6 +8,7 @@
     <ui:define name="conteudo">
         <f:metadata>
             <f:viewParam name="id" value="#{medicoBean.medico}" converter="#{medicoConversor}"/>
+            <f:viewParam name="id" value="#{faturamentoBean.medico}" converter="#{medicoConversor}"/>
         </f:metadata>
 
         <p:layout>
@@ -42,7 +43,8 @@
                 </h:form>
                 <br/>
                 <p:panel header="Faturamentos">
-                    <p:dataTable value="#{medicoBean.medico.faturamentos}" var="f">
+                    <p:dataTable value="#{faturamentoBean.faturamentoLazyTable}" var="f"
+                                 lazy="true" paginator="true" rows="15">
                         <p:column headerText="Convênio">
                             <h:outputText value="#{f.servicoConvenio.convenio.nome}"/>
                         </p:column>

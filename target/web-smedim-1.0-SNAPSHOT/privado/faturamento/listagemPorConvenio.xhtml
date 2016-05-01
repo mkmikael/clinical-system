@@ -90,12 +90,12 @@
                     <h:panelGrid columns="2">
                         <h:commandLink style="margin: 2px 4px">
                             <p:graphicImage library="imagens" name="excel.png"/>
-                            <pe:exporter type="xlsx" target="tblFaturamento" fileName="faturamentoPorConvenio" subTable="true"/>
+                            <pe:exporter type="xlsx" encoding="iso-8859-1" target="tblFaturamento" fileName="faturamentoPorConvenio" subTable="true"/>
                         </h:commandLink>
 
                         <h:commandLink style="margin: 2px 4px">
                             <p:graphicImage library="imagens" name="pdf.png"/>
-                            <pe:exporter type="pdf" target="tblFaturamento" fileName="faturamentoPorConvenio" subTable="true"/>
+                            <pe:exporter type="pdf" encoding="iso-8859-1" target="tblFaturamento" fileName="faturamentoPorConvenio" subTable="true"/>
                         </h:commandLink>
                     </h:panelGrid>
 

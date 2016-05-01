@@ -11,7 +11,9 @@ import smedim.dao.UsuarioDAO;
 import smedim.entidade.Usuario;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *

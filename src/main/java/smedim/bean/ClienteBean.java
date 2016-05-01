@@ -7,7 +7,6 @@ package smedim.bean;
 
 import org.primefaces.model.LazyDataModel;
 import smedim.repository.ClienteRepository;
-import smedim.security.CustomAccessDecisionVoter;
 import smedim.security.Secured;
 import smedim.util.BeanUtil;
 import java.io.Serializable;
@@ -21,7 +20,7 @@ import javax.inject.Named;
 import smedim.entidade.Cliente;
 import smedim.entidade.Medico;
 import smedim.rn.ClienteService;
-import smedim.rn.MedicoRN;
+import smedim.rn.MedicoService;
 
 /**
  *
@@ -37,7 +36,7 @@ public class ClienteBean implements Serializable {
     @Inject
     private ClienteService clienteService;
     @Inject
-    private MedicoRN rnMedico;
+    private MedicoService rnMedico;
     @Inject
     private Cliente cliente;
     private List<Cliente> clientes;

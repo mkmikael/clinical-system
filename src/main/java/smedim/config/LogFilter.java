@@ -5,6 +5,7 @@ import smedim.entidade.Usuario;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -30,12 +31,12 @@ public class LogFilter implements PhaseListener {
             params.put( name, Arrays.toString( parameterMap.get(name) ) );
         }
         Object user = request.getSession().getAttribute("usuarioLogado");
-        String username = "";
+        String username = "NONE";
         if (user != null && user instanceof Usuario) {
             username = ((Usuario)user).getLogin();
         }
 
-        log.info(String.format("user: %s@%s, view: %s, params: %s", username, ipAddress, view, params));
+        log.info(String.format("[%s@%s][%s] params: %s", username, ipAddress, view, params));
     }
 
     @Override
